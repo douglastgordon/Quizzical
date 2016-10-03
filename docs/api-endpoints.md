@@ -36,4 +36,4 @@
 - `DELETE /api/setitems/:id`
 
 ### Tags
-- A note's tags will be included in the note show template
+- A sets's tags will be included in the set show template

@@ -66,7 +66,7 @@ the API.
 - [ ] Seed database with a small amount of test data
 - [ ] CRUD API for sets (`SetsController`)
 - [ ] JBuilder views for sets
-- Note components and respective Redux loops
+- Set components and respective Redux loops
   - [ ] `SetsIndex`
   - [ ] `SetForm` - simplified version
 - [ ] Style sets components
