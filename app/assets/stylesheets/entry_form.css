@@ -1,6 +1,29 @@
-.entryForm{
+.entryForm {
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
   width: 400px;
   height: 400px;
   margin: 0 auto;
+}
+
+.entryForm > header {
+  display: block;
+  background: #009688;
+  color: white;
+  font-family: Lato;
+  font-weight: bold;
+  font-size: 25px;
+  padding-left: 15px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+input {
+  padding: 10px;
+  border: none;
+  border-bottom: solid 2px #c9c9c9;
+  transition: border 0.3s;
+}
+
+input:focus, input.focus{
+  border-bottom: solid 2px #c9c9c9;
 }
