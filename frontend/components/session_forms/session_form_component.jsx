@@ -44,7 +44,7 @@ export default class SessionFormComponent extends React.Component {
       <div>
         <header>{header}</header>
         <form className='entryForm' onSubmit={this.handleSubmit}>
-
+          <header></header>
           <label>Username
             <input type="text"
               className="username"
