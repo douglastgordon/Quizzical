@@ -1,5 +1,5 @@
 .group:after {
-  content="";
+  content: "";
   clear: both;
   display: block;
 }
