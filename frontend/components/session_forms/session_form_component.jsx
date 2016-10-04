@@ -46,11 +46,17 @@ export default class SessionFormComponent extends React.Component {
         <form onSubmit={this.handleSubmit}>
 
           <label>Username
-            <input type="text" className="username" value={this.state.username} onInput={this.handleInput}/>
+            <input type="text"
+              className="username"
+              value={this.state.username}
+              onInput={this.handleInput}/>
           </label>
 
-          <label>PWord
-            <input type="text" className="password" value={this.state.password} onInput={this.handleInput}/>
+          <label>Password
+            <input type="password"
+              className="password"
+              value={this.state.password}
+              onInput={this.handleInput}/>
           </label>
           <button type="submit">Submit</button>
 
