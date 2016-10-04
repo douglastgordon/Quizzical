@@ -1,6 +1,6 @@
 # Quizzical
 
-[Heroku link]
+[Heroku link][https://secret-springs-77868.herokuapp.com/#/?_k=zvz9xs]
 
 ## Minimum Viable Product
 
