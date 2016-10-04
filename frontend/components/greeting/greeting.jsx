@@ -17,11 +17,10 @@ export default class GreetingComponent extends React.Component{
       );
     } else {
       return (
-        <div>
-          <Link to="/login">Login</Link>
-          <br/>
-          <Link to="/signup">Sign Up</Link>
-        </div>
+        <ul className="entryLinks">
+          <li><Link to="/login" id='navLogin'>Login</Link></li>
+          <li><Link to="/signup" id='navLogout'>Sign Up</Link></li>
+        </ul>
       );
     }
   }
