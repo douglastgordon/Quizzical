@@ -1,4 +1,3 @@
-27 lines (25 sloc)  531 Bytes
 var path = require("path");
 
 module.exports = {
