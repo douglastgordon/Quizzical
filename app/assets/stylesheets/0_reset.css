@@ -39,6 +39,7 @@ ol, ul {
 blockquote, q {
 	quotes: none;
 }
+
 blockquote:before, blockquote:after,
 q:before, q:after {
 	content: '';
@@ -49,7 +50,7 @@ table {
 	border-spacing: 0;
 }
 
-input[type="text"] {
+input {
   display: block;
   margin: 0;
   width: 100%;
@@ -59,6 +60,7 @@ input[type="text"] {
   box-shadow: none;
   border-radius: none;
 }
-input[type="text"]:focus {
+
+input:focus {
   outline: none;
 }

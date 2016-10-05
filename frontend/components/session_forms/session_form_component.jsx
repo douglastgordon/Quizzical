@@ -41,27 +41,33 @@ export default class SessionFormComponent extends React.Component {
 
 
     return (
-      <div className='entryForm'>
-        <header>{header}</header>
-        <form onSubmit={this.handleSubmit}>
+      <div>
+        <div className="greyout"></div>
+        <div className='entryForm'>
+          <header>{header}</header>
+          <form onSubmit={this.handleSubmit} className="group">
 
-          <label>Username
-            <input type="text"
-              className="username"
-              value={this.state.username}
-              onInput={this.handleInput}/>
-          </label>
+            <label>
+              <input type="text"
+                className="username"
+                value={this.state.username}
+                onInput={this.handleInput}/>
+              Username
+            </label>
 
-          <label>Password
-            <input type="password"
-              className="password"
-              value={this.state.password}
-              onInput={this.handleInput}/>
-          </label>
-          <button type="submit">Submit</button>
+            <label>
+              <input type="password"
+                className="password"
+                value={this.state.password}
+                onInput={this.handleInput}/>
+              Password
+            </label>
+          
+            <button type="submit">{header}</button>
 
-        </form>
-        <Link to={link}>{linkName}</Link>
+          </form>
+          <Link to={link}>{linkName}</Link>
+        </div>
       </div>
     );
 
