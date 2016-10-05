@@ -1,0 +1,10 @@
+.tree {
+  display: block;
+  position: relative;
+  float: left;
+  width: 500px;
+  height: auto;
+  padding-top: 50px;
+  margin-left: -50px;
+  z-index: 0;
+}

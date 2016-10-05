@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Quizlet</title>
+  <title>Quizzical</title>
   <link href="https://fonts.googleapis.com/css?family=Lato:300" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
+  <script type="text/javascript">
+    window.Quizzical = window.Quizzical || {};
+    Quizzical.images = {learningtree: "<%= image_url('learningtree.jpg') %>"}
+  </script>
 </head>
 <body>
 
