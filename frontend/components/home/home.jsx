@@ -33,7 +33,12 @@ export default class Home extends React.Component {
       <header className="homeNav">
         <Link to="/home" className="header-link"><h1>Quizzical</h1></Link>
         <div className="lefticons">
-          <h2>{this.props.currentUser.username}</h2>
+          <div className="user">
+            <img src={window.Quizzical.images.usericon}
+              className="usericon">
+            </img>
+            <h2>{this.props.currentUser.username}</h2>
+          </div>
           <button onClick={this.handleClick}>Log Out</button>
         </div>
       </header>

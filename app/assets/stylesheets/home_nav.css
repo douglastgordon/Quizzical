@@ -13,12 +13,36 @@
   font-size: 30px;
   font-family: seravek;
   font-weight: bold;
-  float: left;
+  float: right;
 }
+
 
 .homeNav .lefticons {
   float: right;
+  display: block;
+}
 
+.homeNav .user {
+  float: left;
+  display: block;
+
+}
+
+.homeNav .usericon {
+  width: 25px;
+  height: auto;
+  float: left;
+  margin-top: 27px;
+}
+
+.homeNav h2 {
+  display: block;
+  padding-top: 32px;
+  margin-right: 50px;
+  margin-left: 10px;
+  font-size: 15px;
+  font-family: Montserrat;
+  float: left;
 }
 
 .homeNav button {
@@ -42,13 +66,4 @@
 
 .homeNav button:hover {
   background: #B2DFDB;
-}
-
-.homeNav h2 {
-  display: block;
-  padding-top: 32px;
-  margin-right: 50px;
-  font-size: 15px;
-  font-family: Montserrat;
-  float: left;
 }

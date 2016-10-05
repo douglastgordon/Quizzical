@@ -1,5 +1,6 @@
 .loggedOut{
   z-index: 0;
+
 }
 
 
@@ -15,8 +16,9 @@
 
 .loggedOut .text {
   display: block;
-  float: right;
-  padding-top: 150px; padding-right: 180px;
+  float: left;
+  padding-top: 170px;
+  padding-left: 120px;
 
 }
 

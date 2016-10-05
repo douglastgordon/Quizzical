@@ -7,13 +7,18 @@
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
+
   <script type="text/javascript">
     window.Quizzical = window.Quizzical || {};
+
     Quizzical.images = {
       learningtree: "<%= image_url('learningtree.jpg') %>",
-      exit: "<%= image_url('exit.svg') %>"
+      exit: "<%= image_url('exit.svg') %>",
+      usericon: "<%= image_url('usericon.svg') %>"
     }
+    
   </script>
+
 </head>
 <body>
 
