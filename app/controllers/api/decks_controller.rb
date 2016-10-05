@@ -15,9 +15,15 @@ class Api::DecksController < ApplicationController
   end
 
   def update
+    @deck = Deck.find(params[:id])
+    @deck.update!(deck_params)
+    render :show
   end
 
   def destroy
+    @deck = Deck.find(params[:id])
+    @deck.destroy
+    render :index
   end
 
   private
