@@ -44,7 +44,13 @@ export default class SessionFormComponent extends React.Component {
       <div>
         <div className="greyout"></div>
         <div className='entryForm'>
-          <header>{header}</header>
+          <header group>
+            {header}
+            <Link to="/welcome" className="exitlink">
+              <img src={window.Quizzical.images.exit} className="exit"></img>
+            </Link>
+          </header>
+
           <form onSubmit={this.handleSubmit} className="group">
 
             <label>

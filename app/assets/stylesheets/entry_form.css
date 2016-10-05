@@ -11,6 +11,18 @@
   background-color: white;
 }
 
+.entryForm .exitlink {
+  display: block;
+  float: right;
+  margin-right: 15px;
+}
+
+.entryForm .exit {
+  width: 30px;
+  height: auto;
+
+}
+
 .entryForm .greyout {
   display: block;
   width: 100%;
