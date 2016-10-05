@@ -7,7 +7,7 @@ export default class loggedout extends React.Component{
       <img src={window.Quizzical.images.learningtree} className="tree"></img>
       <div className="text">
         <h2>Learn <br/> Anything.</h2>
-        <p>Lorem impsum dolor sit amet.</p>
+        <p>Lorem ipsum dolor sit amet.</p>
       </div>
     </div>
   );

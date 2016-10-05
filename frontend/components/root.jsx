@@ -3,7 +3,7 @@ import { Provider } from 'react-redux';
 //Router
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 //Components
-import App from './app';
+import Welcome from './welcome';
 import SessionFormContainer from './session_forms/session_form_container';
 import LoggedOut from './logged_out/logged_out';
 
@@ -19,24 +19,22 @@ const Root = ({ store }) => {
 
   const _redirectIfLoggedIn = (nextState, replace) => {
     const currentUser = store.getState().session.currentUser;
-    if (currentUser) {
-      replace('/');
-    }
+    // if (currentUser) {
+    //   replace('/');
+    // }
   };
 
-  const _redirect = (nextState, replace) => {
-    replace('/welcome');
-  };
 
   return (
     <Provider store={store}>
       <Router history={hashHistory}>
-        <Route onEnter={_redirect}/>
 
-        <Route path="/welcome" component={App}>
-          <Route path="/login" component={SessionFormContainer} onEnter={_redirectIfLoggedIn}/>
-          <Route path="/signup" component={SessionFormContainer} onEnter={_redirectIfLoggedIn}/>
+        <Route path="/" component={Welcome} onEnter={_redirectIfLoggedIn}>
+          <Route path="login" component={SessionFormContainer}/>
+          <Route path="signup" component={SessionFormContainer}/>
         </Route>
+
+        <Route path="/home"></Route>
 
       </Router>
 

@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 import GreetingContainer from './greeting/greeting_container';
 import LoggedOut from './logged_out/logged_out';
 
-const App = ({children}) => (
+const Welcome = ({children}) => (
   <div className="group">
     <header className="navBar group">
       <Link to="/" className="header-link"><h1>Quizzical</h1></Link>
@@ -14,4 +14,4 @@ const App = ({children}) => (
   </div>
 );
 
-export default App;
+export default Welcome;

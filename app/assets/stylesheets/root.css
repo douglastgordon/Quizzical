@@ -29,7 +29,7 @@
   padding-right: 35px;
 }
 
-#navLogout {
+#navSignup {
   background: #FFC107;
   padding-top: 10px;
   padding-bottom: 10px;
@@ -38,6 +38,6 @@
 
 }
 
-#navLogout:hover {
+#navSignup:hover {
   background: #B2DFDB;
 }

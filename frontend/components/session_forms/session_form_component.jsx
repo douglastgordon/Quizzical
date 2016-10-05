@@ -28,7 +28,7 @@ export default class SessionFormComponent extends React.Component {
   }
   componentDidUpdate(){
     if (this.props.loggedIn){
-      hashHistory.push("/");
+      hashHistory.push("/home");
     }
   }
 
@@ -41,12 +41,12 @@ export default class SessionFormComponent extends React.Component {
 
 
     return (
-      <div>
+      <div className="loginPage">
         <div className="greyout"></div>
         <div className='entryForm'>
-          <header group>
+          <header>
             {header}
-            <Link to="/welcome" className="exitlink">
+            <Link to="/" className="exitlink">
               <img src={window.Quizzical.images.exit} className="exit"></img>
             </Link>
           </header>
