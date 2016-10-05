@@ -36,7 +36,7 @@ export default class SessionFormComponent extends React.Component {
     const isLogin = (this.props.formType === 'login');
     const header = (isLogin) ? "Log In" : "Sign Up";
     const link = (isLogin) ? "/signup" : "/login";
-    const linkName = (isLogin) ? "Sign Up" : "Log In";
+    const linkName = (isLogin) ? "Don't have an account?" : "Already a user?";
 
 
 
@@ -62,11 +62,11 @@ export default class SessionFormComponent extends React.Component {
                 onInput={this.handleInput}/>
               Password
             </label>
-          
-            <button type="submit">{header}</button>
 
+            <button type="submit">{header}</button>
+            <Link className="link" to={link}>{linkName}</Link>
           </form>
-          <Link to={link}>{linkName}</Link>
+
         </div>
       </div>
     );
