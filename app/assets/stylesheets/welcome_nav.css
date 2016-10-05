@@ -1,0 +1,44 @@
+.navBar {
+  display: block;
+  background: #009688;
+  color: white;
+  height: 80px;
+  z-index: 1;
+}
+
+.header-link > h1 {
+  padding-top: 25px;
+  padding-bottom: 40px;
+  padding-left: 25px;
+  font-size: 30px;
+  font-family: seravek;
+  font-weight: bold;
+  float: left;
+}
+
+.entryLinks {
+  float: right;
+  padding-top: 32px;
+}
+
+.entryLinks > li {
+  float: left;
+  font-family: Montserrat;
+  font-size: 15px;
+  padding-right: 35px;
+  font-weight: bold;
+
+}
+
+#navSignup {
+  background: #FFC107;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+
+}
+
+#navSignup:hover {
+  background: #B2DFDB;
+}

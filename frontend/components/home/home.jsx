@@ -26,16 +26,18 @@ export default class Home extends React.Component {
     if (!this.props.currentUser){
       return (
         <div></div>
-      )
+      );
     } else {
     return(
-        <div>
-          <h1>Welcome back {this.props.currentUser.username}</h1>
-          <button onClick={this.handleClick}>
-            Log out
-          </button>
+
+      <header className="homeNav">
+        <Link to="/home" className="header-link"><h1>Quizzical</h1></Link>
+        <div className="lefticons">
+          <h2>{this.props.currentUser.username}</h2>
+          <button onClick={this.handleClick}>Log Out</button>
         </div>
-    )
+      </header>
+    );
   }
   }
 }
