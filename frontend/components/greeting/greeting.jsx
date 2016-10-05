@@ -16,13 +16,3 @@ export default class GreetingComponent extends React.Component{
     );
   }
 }
-
-
-// if (this.props.currentUser){
-//   return(
-//     <div>
-//       <h1>Welcome back {this.props.currentUser.username}</h1>
-//       <button onClick={this.props.logout}>Log out</button>
-//     </div>
-//   );
-// } else {

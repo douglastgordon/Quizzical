@@ -13,6 +13,7 @@ export default ({getState, dispatch}) => next => action => {
     const errors = xhr.responseJSON;
     dispatch(receiveErrors(errors));
   };
+
   switch(action.type){
     case LOGIN:
       login(action.user, successCallback, errorCallback);
