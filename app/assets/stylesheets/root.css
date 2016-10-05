@@ -3,6 +3,7 @@
   background: #009688;
   color: white;
   height: 80px;
+  z-index: 1;
 }
 
 .header-link > h1 {

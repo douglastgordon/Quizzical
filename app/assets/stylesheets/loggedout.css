@@ -1,4 +1,9 @@
-.tree {
+.loggedOut{
+  z-index: 0;
+}
+
+
+.loggedOut .tree {
   display: block;
   position: relative;
   float: left;
@@ -6,5 +11,24 @@
   height: auto;
   padding-top: 50px;
   margin-left: -50px;
-  z-index: 0;
+}
+
+.loggedOut .text {
+  display: block;
+  float: right;
+  padding-top: 150px; padding-right: 180px;
+
+}
+
+.loggedOut h2 {
+  font-family: seravek;
+  line-height: 65px;
+  font-size: 60px;
+}
+
+.loggedOut p {
+  font-family: seravek;
+  font-size: 20px;
+  padding-top: 10px;
+
 }

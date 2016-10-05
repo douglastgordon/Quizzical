@@ -4,6 +4,11 @@
   height: 400px;
   margin: 0 auto;
   z-index: 1;
+  display: block;
+  position: absolute;
+  margin-left: 400px;
+  margin-top: -500px;
+  background-color: white;
 }
 
 .entryForm .greyout {
