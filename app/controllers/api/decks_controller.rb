@@ -12,6 +12,7 @@ class Api::DecksController < ApplicationController
 
   def show
     @deck = Deck.find(params[:id])
+    render :show
   end
 
   def update
