@@ -3,10 +3,11 @@ import { Link } from 'react-router';
 import HomeContainer from './home/home_container';
 import DeckIndexContainer from './deck/deck_index_container';
 
-const Frontpage = () => {
+const Frontpage = ({children}) => {
   return (
     <div>
       <HomeContainer/>
+      {children}
     </div>
   );
 };

@@ -26,6 +26,10 @@ const Root = ({ store }) => {
     }
   };
 
+  const _redirect = (nextState, replace) => {
+    replace('home/index');
+  };
+
 
   return (
     <Provider store={store}>
@@ -35,9 +39,11 @@ const Root = ({ store }) => {
           <Route path="signup" component={SessionFormContainer}/>
         </Route>
 
-        <Route path="/home" component={Frontpage}>
-          <Route path="/index" component={DeckIndexContainer}/>
+        <Route path="/home" component={Frontpage}  >
+          <IndexRoute component={DeckIndexContainer}/>
         </Route>
+
+
         <Route path="home/:deckId" component={DeckShowContainer}/>
 
 
