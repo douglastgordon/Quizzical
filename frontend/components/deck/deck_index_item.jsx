@@ -17,7 +17,8 @@ export default class DeckIndexItem extends React.Component{
   render(){
     return (
       <li>
-        <h1 onClick={this.handleClick}>{this.props.deck.title}</h1>
+        <h2 onClick={this.handleClick}>{this.props.deck.title}</h2>
+        <h3>{this.props.deck.author}</h3>
       </li>
     );
   }

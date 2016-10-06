@@ -5,7 +5,7 @@ import DeckIndexContainer from './deck/deck_index_container';
 
 const Frontpage = ({children}) => {
   return (
-    <div>
+    <div className="main group">
       <HomeContainer/>
       {children}
     </div>

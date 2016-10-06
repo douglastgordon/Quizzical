@@ -1,0 +1,34 @@
+.content {
+  display: block;
+  width: 70%;
+  height: auto;
+  float: right;
+  /*border: 1px solid red;*/
+}
+
+
+
+.deck-index {
+  display: block;
+  width: 700px;
+  margin: 0 auto;
+  margin-top: 40px;
+}
+
+.deck-index h1 {
+  font-family: seravek;
+  font-size: 30px;
+  color: #212121;
+  margin-bottom: 30px;
+}
+
+.deck-index ul {
+  border: 1px solid #bdbcbc;
+  border-bottom: 0;
+}
+
+.deck-index li {
+  display: block;
+  height: 75px;
+  border-bottom: 1px solid #bdbcbc;
+}

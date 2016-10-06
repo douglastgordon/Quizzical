@@ -43,8 +43,8 @@ const Root = ({ store }) => {
           <IndexRoute component={DeckIndexContainer}/>
         </Route>
 
+        <Route path="/:deckId" component={DeckShowContainer}/>
 
-        <Route path="home/:deckId" component={DeckShowContainer}/>
 
 
       </Router>
