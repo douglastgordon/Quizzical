@@ -11,7 +11,7 @@ export default class DeckIndexItem extends React.Component{
 
   handleClick(){
     const deckID = this.props.deck.id;
-    hashHistory.push("home/" + deckID);
+    hashHistory.push(`/${deckID}`);
   }
 
   render(){

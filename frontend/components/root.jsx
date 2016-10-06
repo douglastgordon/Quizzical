@@ -41,9 +41,9 @@ const Root = ({ store }) => {
 
         <Route path="/home" component={Frontpage}  >
           <IndexRoute component={DeckIndexContainer}/>
+          <Route path="/:deckId" component={DeckShowContainer}/>
         </Route>
 
-        <Route path="/:deckId" component={DeckShowContainer}/>
 
 
 
