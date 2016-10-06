@@ -3,8 +3,10 @@ import ReactDOM from 'react-dom';
 import Root from './components/root';
 
 import configureStore from './store/store';
-import { login } from './actions/session_actions';
 
+
+//testing
+import { login } from './actions/session_actions';
 import { requestDeck } from './actions/deck_actions';
 import { REQUEST_DECK } from './actions/deck_actions';
 import { fetchDeck } from './util/deck_api_util';
