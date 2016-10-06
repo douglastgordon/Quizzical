@@ -1,9 +1,11 @@
 import { applyMiddleware } from 'redux';
 
-import SessionMiddleware from '../middleware/session_middleware';
+import SessionMiddleware from './session_middleware';
+import DecksMiddleware from './decks_middleware';
 
 const RootMiddleware = applyMiddleware(
-  SessionMiddleware
+  SessionMiddleware,
+  DecksMiddleware
 );
 
 export default RootMiddleware;
