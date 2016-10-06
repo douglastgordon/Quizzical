@@ -7,7 +7,6 @@ const Frontpage = () => {
   return (
     <div>
       <HomeContainer/>
-      <DeckIndexContainer/>
     </div>
   );
 };

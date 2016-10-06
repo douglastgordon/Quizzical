@@ -8,6 +8,7 @@ import SessionFormContainer from './session_forms/session_form_container';
 import Frontpage from './frontpage';
 import NewDeckContainer from './deck/new_deck_container';
 import DeckShowContainer from './deck/deck_show_container';
+import DeckIndexContainer from './deck/deck_index_container';
 
 const Root = ({ store }) => {
 
@@ -34,8 +35,10 @@ const Root = ({ store }) => {
           <Route path="signup" component={SessionFormContainer}/>
         </Route>
 
-        <Route path="/home" component={Frontpage}/>
-         <Route path="home/:deckId" component={DeckShowContainer}/>
+        <Route path="/home" component={Frontpage}>
+          <Route path="/index" component={DeckIndexContainer}/>
+        </Route>
+        <Route path="home/:deckId" component={DeckShowContainer}/>
 
 
       </Router>

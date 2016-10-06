@@ -19,9 +19,6 @@ export default class Home extends React.Component {
       hashHistory.push("/");
     }
   }
-
-
-
   render(){
     if (!this.props.currentUser){
       return (
@@ -29,7 +26,8 @@ export default class Home extends React.Component {
       );
     } else {
     return(
-      <div>
+      <div className="home">
+
         <header className="homeNav">
           <Link to="/home" className="header-link"><h1>Quizzical</h1></Link>
           <div className="lefticons">
@@ -42,6 +40,13 @@ export default class Home extends React.Component {
             <button onClick={this.handleClick}>Log Out</button>
           </div>
         </header>
+
+        <div className="sidebar">
+          <Link to="/home" className="home"><h1>Home</h1></Link>
+          <Link to="/home" className="create-set"><h1>Create Set</h1></Link>
+          <Link to="/home" className="my-sets"><h1>My Sets</h1></Link>
+        </div>
+
       </div>
     );
   }
