@@ -6,7 +6,9 @@ import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 import Welcome from './welcome';
 import SessionFormContainer from './session_forms/session_form_container';
 import Frontpage from './frontpage';
+
 import NewDeckContainer from './deck/new_deck_container';
+
 import DeckShowContainer from './deck/deck_show_container';
 import DeckIndexContainer from './deck/deck_index_container';
 
@@ -34,6 +36,7 @@ const Root = ({ store }) => {
   return (
     <Provider store={store}>
       <Router history={hashHistory}>
+
         <Route path="/" component={Welcome} onEnter={_redirectIfLoggedIn}>
           <Route path="login" component={SessionFormContainer}/>
           <Route path="signup" component={SessionFormContainer}/>
@@ -41,11 +44,9 @@ const Root = ({ store }) => {
 
         <Route path="/home" component={Frontpage}  >
           <IndexRoute component={DeckIndexContainer}/>
+          <Route path="/create" component={NewDeckContainer}/>
           <Route path="/:deckId" component={DeckShowContainer}/>
         </Route>
-
-
-
 
       </Router>
 

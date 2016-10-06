@@ -1,10 +1,12 @@
 import {
   receiveDecks,
   receiveDeck,
+  requestDeck,
   requestDecks,
   REQUEST_DECKS,
   REQUEST_DECK,
-  DESTROY_DECK
+  DESTROY_DECK,
+  CREATE_DECK
  } from '../actions/deck_actions';
 import {
   fetchDecks,
@@ -26,8 +28,11 @@ const DecksMiddleware = ({ getState, dispatch }) => next => action => {
       fetchDeck(action.id, success);
       return next(action);
     case DESTROY_DECK:
-      // success = () => dispatch(requestDecks());
       deleteDeck(action.id);
+      return next(action);
+    case CREATE_DECK:
+      success = data => dispatch(requestDeck(data));
+      makeDeck(action.deck, success);
       return next(action);
     default:
       return next(action);

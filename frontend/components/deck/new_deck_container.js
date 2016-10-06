@@ -4,7 +4,7 @@ import { createDeck } from '../../actions/deck_actions';
 
 const mapStateToProps = state => {
   return (
-    currentUser: state.session.currentUser
+    {currentUser: state.session.currentUser}
   );
 };
 

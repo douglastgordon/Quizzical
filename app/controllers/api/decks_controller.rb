@@ -30,7 +30,7 @@ class Api::DecksController < ApplicationController
   private
 
   def deck_params
-    params.require(:deck).permit(:title, :description, :author, :term_lang, :def_lang)
+    params.require(:deck).permit(:title, :description, :author, :author_id, :term_lang, :def_lang)
   end
 
 
