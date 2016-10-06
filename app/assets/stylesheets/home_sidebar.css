@@ -1,0 +1,48 @@
+.sidebar {
+
+}
+
+.sidebar h1 {
+  color: white;
+  font-family: Montserrat;
+  display: inline-block;
+  vertical-align: middle;
+  line-height: normal;
+}
+
+.home .button {
+  margin-top: 20px;
+  margin-left: 20px;
+  width: 150px;
+  height: 40px;
+  display: block;
+  line-height: 40px;
+  text-align: center;
+}
+
+
+.home .home-button {
+  margin-top: 40px;
+  background: #2196F3;
+}
+
+.home .home-button:hover {
+  background: #03A9F4;
+}
+
+.home .create-set {
+  background: #3F51B5;
+}
+
+.home .create-set:hover {
+  background: #536DFE;
+}
+
+.home .my-sets {
+  background: #673AB7
+}
+
+.home .my-sets:hover {
+  background: #7C4DFF;
+
+}

@@ -1,3 +1,5 @@
+
+
 .homeNav {
   display: block;
   background: #009688;
@@ -7,13 +9,12 @@
 }
 
 .homeNav h1 {
-  padding-top: 25px;
-  padding-bottom: 40px;
-  padding-left: 25px;
+  margin-top: 25px;
+  margin-left: 25px;
   font-size: 30px;
   font-family: seravek;
   font-weight: bold;
-  float: right;
+  float: left;
 }
 
 
