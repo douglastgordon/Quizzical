@@ -4,8 +4,16 @@ import Root from './components/root';
 
 import configureStore from './store/store';
 import { login } from './actions/session_actions';
+
+import { requestDecks } from './actions/deck_actions';
+import { REQUEST_DECKS } from './actions/deck_actions';
 window.store = configureStore();
 window.login = login;
+
+window.REQUEST_DECKS = REQUEST_DECKS;
+window.requestDecks = requestDecks;
+
+
 
 
 document.addEventListener('DOMContentLoaded', () => {

@@ -22,7 +22,7 @@ export const receiveDecks = decks => ({
 });
 
 export const requestDecks = () => ({
-  type: RECEIVE_DECKS,
+  type: REQUEST_DECKS,
 });
 
 export const createDeck = deck => ({
