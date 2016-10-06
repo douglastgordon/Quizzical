@@ -4,6 +4,7 @@ export const RECEIVE_DECKS = "RECEIVE_DECKS";
 export const REQUEST_DECKS = "REQUEST_DECKS";
 export const CREATE_DECK = "CREATE_DECK";
 export const DESTROY_DECK = "DESTROY_DECK";
+export const UPDATE_DECK = "UPDATE_DECK";
 
 export const receiveDeck = deck => ({
   type: RECEIVE_DECK,
@@ -32,4 +33,9 @@ export const createDeck = deck => ({
 export const destroyDeck = id => ({
   type: DESTROY_DECK,
   id
+});
+
+export const updateDeck = deck => ({
+  type: UPDATE_DECK,
+  deck
 });
