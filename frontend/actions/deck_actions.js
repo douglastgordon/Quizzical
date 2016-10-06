@@ -9,3 +9,27 @@ export const receiveDeck = deck => ({
   type: RECEIVE_DECK,
   deck
 });
+
+export const requestDeck = id => ({
+  type: REQUEST_DECK,
+  id
+});
+
+export const receiveDecks = decks => ({
+  type: RECEIVE_DECKS,
+  decks
+});
+
+export const requestDecks = () => ({
+  type: RECEIVE_DECKS,
+});
+
+export const createDeck = deck => ({
+  type: CREATE_DECK,
+  deck
+});
+
+export const destroyDeck = id => ({
+  type: DESTROY_DECK,
+  id
+});
