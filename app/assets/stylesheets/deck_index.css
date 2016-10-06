@@ -13,22 +13,45 @@
   width: 700px;
   margin: 0 auto;
   margin-top: 40px;
+
+
 }
 
 .deck-index h1 {
-  font-family: seravek;
-  font-size: 30px;
-  color: #212121;
+  font-size: 40px;
   margin-bottom: 30px;
+  font-family: seravek;
+  color: #212121;
+}
+
+.deck-index h2 {
+  font-size: 30px;
+  padding-top: 15px;
+  margin-left: 10px;
+  font-family: seravek;
+  color: #212121;
+}
+
+.deck-index h3 {
+  font-size: 15px;
+  padding-top: 3px;
+  margin-left: 10px;
+  font-family: seravek;
+  color: #757575;
 }
 
 .deck-index ul {
   border: 1px solid #bdbcbc;
   border-bottom: 0;
+
 }
 
 .deck-index li {
   display: block;
   height: 75px;
   border-bottom: 1px solid #bdbcbc;
+}
+
+.deck-index li:hover {
+  background: #B2DFDB;
 }
