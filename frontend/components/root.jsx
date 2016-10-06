@@ -5,9 +5,9 @@ import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 //Components
 import Welcome from './welcome';
 import SessionFormContainer from './session_forms/session_form_container';
-// import LoggedOut from './logged_out/logged_out';
-// import HomeContainer from './home/home_container';
 import Frontpage from './frontpage';
+import NewDeckContainer from './deck/new_deck_container';
+
 
 const Root = ({ store }) => {
 
@@ -34,7 +34,9 @@ const Root = ({ store }) => {
           <Route path="signup" component={SessionFormContainer}/>
         </Route>
 
-        <Route path="/home" component={Frontpage}></Route>
+        <Route path="/home" component={Frontpage}>
+          <Route path="new" component={NewDeck}/>
+        </Route>
 
       </Router>
 

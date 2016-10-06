@@ -1,20 +1,20 @@
 import { connect } from 'react-redux';
-import DeckIndex from './deck_index';
-import { requestDecks, requestDeck } from '../../actions/deck_actions';
+import NewDeck from './new_index';
+import { createDeck } from '../../actions/deck_actions';
 
 const mapStateToProps = state => {
   return (
-  {decks: state.decks}
+    currentUser: state.session.currentUser
   );
 };
 
 const mapDispatchToProps = dispatch => {
   return (
-    {requestDecks: () => dispatch(requestDecks())}
+    {createDecks: () => dispatch(createDecks())}
   );
 };
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(DeckIndex);
+)(NewDeck);
