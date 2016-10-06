@@ -7,8 +7,12 @@ export default class DeckShow extends React.Component{
   }
 
   render(){
+
     return (
-      <h1>hello</h1>
+      <div>
+        <h1>{this.props.deck.title}</h1>
+        <p>{this.props.deck.description}</p>
+      </div>
     );
   }
 

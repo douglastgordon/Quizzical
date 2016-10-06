@@ -34,9 +34,9 @@ const Root = ({ store }) => {
           <Route path="signup" component={SessionFormContainer}/>
         </Route>
 
-        <Route path="/home" component={Frontpage}>
-         <Route path="/:deckId" component={DeckShowContainer}/>
-        </Route>
+        <Route path="/home" component={Frontpage}/>
+         <Route path="home/:deckId" component={DeckShowContainer}/>
+
 
       </Router>
 
