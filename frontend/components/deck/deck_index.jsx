@@ -20,7 +20,12 @@ export default class DeckIndex extends React.Component{
     });
 
     return (
-      <h1>All Decks</h1>
+      <div>
+        <h1>All Decks</h1>
+        <ul>
+          {decks}
+        </ul>
+      </div>
     );
 
   }
