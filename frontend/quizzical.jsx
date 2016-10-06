@@ -5,13 +5,14 @@ import Root from './components/root';
 import configureStore from './store/store';
 import { login } from './actions/session_actions';
 
-import { requestDecks } from './actions/deck_actions';
-import { REQUEST_DECKS } from './actions/deck_actions';
+import { requestDeck } from './actions/deck_actions';
+import { REQUEST_DECK } from './actions/deck_actions';
+import { fetchDeck } from './util/deck_api_util';
 window.store = configureStore();
 window.login = login;
-
-window.REQUEST_DECKS = REQUEST_DECKS;
-window.requestDecks = requestDecks;
+window.fetchDeck = fetchDeck;
+window.REQUEST_DECK = REQUEST_DECK;
+window.requestDeck = requestDeck;
 
 
 

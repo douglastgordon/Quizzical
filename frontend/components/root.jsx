@@ -7,7 +7,7 @@ import Welcome from './welcome';
 import SessionFormContainer from './session_forms/session_form_container';
 import Frontpage from './frontpage';
 import NewDeckContainer from './deck/new_deck_container';
-
+import DeckShowContainer from './deck/deck_show_container';
 
 const Root = ({ store }) => {
 
@@ -35,7 +35,7 @@ const Root = ({ store }) => {
         </Route>
 
         <Route path="/home" component={Frontpage}>
-          <Route path="new" component={NewDeck}/>
+         <Route path="/:deckId" component={DeckShowContainer}/>
         </Route>
 
       </Router>

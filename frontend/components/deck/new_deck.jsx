@@ -6,7 +6,8 @@ export default class NewDeck extends React.Component{
     super(props);
     this.state = {
       title: "",
-      description: ""
+      description: "",
+      author_id: this.props.currentUser.id
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleInput = this.handleInput.bind(this);

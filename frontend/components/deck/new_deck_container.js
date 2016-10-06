@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import NewDeck from './new_index';
+import NewDeck from './new_deck';
 import { createDeck } from '../../actions/deck_actions';
 
 const mapStateToProps = state => {
@@ -10,7 +10,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return (
-    {createDecks: () => dispatch(createDecks())}
+    {processForm: (deck) => dispatch(createDeck(deck))}
   );
 };
 

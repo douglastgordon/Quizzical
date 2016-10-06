@@ -7,7 +7,6 @@ export default class DeckIndexItem extends React.Component{
   }
 
   render(){
-    debugger
     return (
       <li>
         <h1>{this.props.deck.title}</h1>
