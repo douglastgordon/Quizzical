@@ -21,4 +21,6 @@ class Deck < ActiveRecord::Base
     class_name: :User
   )
 
+  has_many :cards
+
 end
