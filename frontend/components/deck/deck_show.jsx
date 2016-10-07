@@ -1,5 +1,6 @@
 import React from 'react';
 import { hashHistory } from 'react-router';
+import NewCardContainer from '../card/new_card_container';
 
 export default class DeckShow extends React.Component{
 
@@ -7,6 +8,8 @@ export default class DeckShow extends React.Component{
     super(props);
     this.handleDestroy = this.handleDestroy.bind(this);
     this.handleUpdate = this.handleUpdate.bind(this);
+    this.addNewCardForm = this.addNewCardForm.bind(this);
+    this.forms = [];
   }
 
   handleDestroy(){
@@ -19,6 +22,11 @@ export default class DeckShow extends React.Component{
 
   componentWillMount(){
     this.props.requestFullDeck(this.props.params.deckId);
+  }
+
+  addNewCardForm(){
+    this.forms.push(<NewCardContainer/>);
+    this.forceUpdate();
   }
 
   render(){
@@ -40,6 +48,7 @@ export default class DeckShow extends React.Component{
         );
       });
     }
+    let forms;
 
     return (
       <div className="content">
@@ -72,6 +81,12 @@ export default class DeckShow extends React.Component{
           <ul className="cards">
             {kards}
           </ul>
+
+
+          <div>
+            {this.forms}
+          </div>
+          <button onClick={this.addNewCardForm}>Add Card</button>
 
         </div>
       </div>
