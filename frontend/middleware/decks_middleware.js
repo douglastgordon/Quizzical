@@ -1,3 +1,4 @@
+import { hashHistory } from 'react-router';
 import {
   receiveDecks,
   receiveDeck,
@@ -28,10 +29,16 @@ const DecksMiddleware = ({ getState, dispatch }) => next => action => {
       fetchDeck(action.id, success);
       return next(action);
     case DESTROY_DECK:
-      deleteDeck(action.id);
+      success = () => {
+        hashHistory.push(`/home`);
+      };
+      deleteDeck(action.id, success);
       return next(action);
     case CREATE_DECK:
-      success = data => dispatch(requestDeck(data));
+      success = data => {
+        hashHistory.push(`${data.id}`);
+        return dispatch(receiveDeck(data));
+      };
       makeDeck(action.deck, success);
       return next(action);
     default:

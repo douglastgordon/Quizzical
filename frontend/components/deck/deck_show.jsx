@@ -9,11 +9,15 @@ export default class DeckShow extends React.Component{
   }
 
   handleClick(){
-    this.props.destroyDeck(this.props.deckId);
-    hashHistory.push(`/home`);
+    this.props.destroyDeck(this.props.deck.id);
   }
 
+  // componentWillMount(){
+  //   this.props.requestDeck(this.props.params.deckId);
+  // }
+
   render(){
+    debugger
     return (
       <div>
         <h1>{this.props.deck.title}</h1>

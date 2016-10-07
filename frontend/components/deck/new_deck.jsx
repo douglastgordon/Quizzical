@@ -1,4 +1,5 @@
 import React from 'react';
+import { hashHistory } from 'react-router';
 
 export default class NewDeck extends React.Component{
 
@@ -22,11 +23,16 @@ export default class NewDeck extends React.Component{
   }
 
   handleSubmit(e){
-    debugger
+
     e.preventDefault();
     const deck = this.state;
     this.props.processForm(deck);
+
   }
+
+
+
+
 
   render(){
     return (

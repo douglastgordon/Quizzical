@@ -9,7 +9,6 @@ const mapStateToProps = (state, ownProps) => {
   const deckId = parseInt(ownProps.params.deckId);
   const deck = selectDeck(state.decks, deckId);
   return {
-    deckId,
     deck
   };
 };
