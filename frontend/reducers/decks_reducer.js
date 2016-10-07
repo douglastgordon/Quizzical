@@ -6,6 +6,7 @@ const DecksReducer = (state = {}, action) => {
     case RECEIVE_DECKS:
       return action.decks;
     case RECEIVE_DECK:
+      debugger
       let id = action.deck.id;
       return merge({}, state, {[id]: action.deck});
     default:
