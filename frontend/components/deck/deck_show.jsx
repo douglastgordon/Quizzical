@@ -17,8 +17,11 @@ export default class DeckShow extends React.Component{
     hashHistory.push(`${this.props.deck.id}/edit`);
   }
 
+  componentWillMount(){
+    this.props.requestFullDeck(this.props.params.deckId);
+  }
+
   render(){
-    debugger
     return (
       <div className="content">
 
