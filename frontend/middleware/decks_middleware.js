@@ -17,15 +17,13 @@ import {
 
 
 const DecksMiddleware = ({ getState, dispatch }) => next => action => {
-  let success = 0;
+  let success;
   switch(action.type){
-
     case REQUEST_DECKS:
       success = data => dispatch(receiveDecks(data));
       fetchDecks(success);
       return next(action);
     case REQUEST_DECK:
-      debugger
       success = data => dispatch(receiveDeck(data));
       fetchDeck(action.id, success);
       return next(action);

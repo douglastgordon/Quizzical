@@ -6,6 +6,7 @@ export const receiveFullDeck = fullDeck => ({
   fullDeck
 });
 
-export const requestFullDeck = () => ({
-  type: REQUEST_FULL_DECK
+export const requestFullDeck = (id) => ({
+  type: REQUEST_FULL_DECK,
+  id
 });

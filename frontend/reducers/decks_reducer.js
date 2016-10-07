@@ -11,7 +11,6 @@ const DecksReducer = (state = {}, action) => {
       return merge({}, state, {[id]: action.deck});
     default:
       return state;
-
   }
 };
 

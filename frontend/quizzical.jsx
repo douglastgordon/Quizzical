@@ -9,10 +9,12 @@ import configureStore from './store/store';
 // import { login } from './actions/session_actions';
 // import { requestDeck } from './actions/deck_actions';
 // import { REQUEST_DECK } from './actions/deck_actions';
-// import { fetchDeck } from './util/deck_api_util';
+import { fetchDeck } from './util/full_deck_api_util';
+import { requestFullDeck, REQUEST_FULL_DECK } from './actions/full_deck_actions';
 // window.store = configureStore();
 // window.login = login;
-// window.fetchDeck = fetchDeck;
+window.fetchDeck = fetchDeck;
+window.requestFullDeck = requestFullDeck;
 // window.REQUEST_DECK = REQUEST_DECK;
 // window.requestDeck = requestDeck;
 //
