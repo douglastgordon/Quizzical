@@ -8,7 +8,6 @@ export default class DeckIndexItem extends React.Component{
     this.handleClick = this.handleClick.bind(this);
   }
 
-
   handleClick(){
     const deckID = this.props.deck.id;
     hashHistory.push(`/${deckID}`);

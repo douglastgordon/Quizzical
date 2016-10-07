@@ -3,7 +3,6 @@ import DeckIndex from './deck_index';
 import { requestDecks, requestDeck } from '../../actions/deck_actions';
 
 const mapStateToProps = state => {
-  debugger
   return (
   {decks: state.decks}
   );

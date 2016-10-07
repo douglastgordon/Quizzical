@@ -23,16 +23,10 @@ export default class NewDeck extends React.Component{
   }
 
   handleSubmit(e){
-
     e.preventDefault();
     const deck = this.state;
     this.props.processForm(deck);
-
   }
-
-
-
-
 
   render(){
     return (

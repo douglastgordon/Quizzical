@@ -1,0 +1,88 @@
+.deck-show {
+  display: block;
+  width: 700px;
+  margin: 0 auto;
+  margin-top: 40px;
+}
+
+.deck-show .title{
+  float: left;
+}
+
+.deck-show h1 {
+  font-family: seravek;
+  color: #212121;
+  font-size: 40px;
+  margin-bottom: 30px;
+  float: left;
+}
+
+.deck-show h2 {
+  display: block;
+  float: left;
+  font-family: seravek;
+  font-size: 17px;
+  color: #757575;
+  float: left;
+  padding-top: 18px;
+  padding-left: 10px;
+}
+
+.deck-show h3 {
+  display: block;
+  float: left;
+  font-family: seravek;
+  font-weight: bold;
+  font-size: 17px;
+  color: #231f20;
+  padding-bottom: 5px;
+}
+
+.deck-show p {
+  font-family: seravek;
+  font-size: 16px;
+  float: left;
+  border: 1px solid #bdbcbc;
+  border-radius: 5px;
+  padding: 10px 25px;
+  width: 650px;;
+
+}
+
+.deck-show .buttons {
+  float: right;
+  width: 180px;
+}
+
+.deck-show .button-container1 {
+  width: 80px;
+  height: 40px;
+  float: right;
+}
+
+.deck-show .button-container2 {
+  width: 80px;
+  height: 40px;
+  float: left;
+}
+
+
+.deck-show .buttons .button {
+  border: 0;
+  outline: 0;
+  color: white;
+  font-family: Montserrat;
+  width: 100%;
+  height: 100%;
+  font-size: 15px;
+  float: right;
+
+}
+.deck-show .delete {
+  display: block;
+  background: #ef4437;
+}
+.deck-show .edit {
+  display: block;
+  background: #fdc010;
+}
