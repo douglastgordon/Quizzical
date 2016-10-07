@@ -9,17 +9,21 @@ import configureStore from './store/store';
 // import { login } from './actions/session_actions';
 // import { requestDeck } from './actions/deck_actions';
 // import { REQUEST_DECK } from './actions/deck_actions';
-import { fetchDeck } from './util/full_deck_api_util';
-import { requestFullDeck, REQUEST_FULL_DECK } from './actions/full_deck_actions';
+// import { fetchDeck } from './util/full_deck_api_util';
+// import { requestFullDeck, REQUEST_FULL_DECK } from './actions/full_deck_actions';
 // window.store = configureStore();
 // window.login = login;
-window.fetchDeck = fetchDeck;
-window.requestFullDeck = requestFullDeck;
+// window.fetchDeck = fetchDeck;
+// window.requestFullDeck = requestFullDeck;
 // window.REQUEST_DECK = REQUEST_DECK;
 // window.requestDeck = requestDeck;
 //
+// import { makeCard } from './util/card_api_util';
 
+import { createCard, CREATE_CARD } from "./actions/card_actions";
 
+window.createCard = createCard;
+window.CREATE_CARD = CREATE_CARD;
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
