@@ -22,6 +22,22 @@ export default class DeckShow extends React.Component{
   }
 
   render(){
+
+    console.log(this.props.deck.cards)
+    let kards;
+    if (this.props.deck.cards){
+      const cardKeys = Object.keys(this.props.deck.cards);
+      debugger
+      kards = cardKeys.map((key)=>{
+        return (
+          <li>
+            <span>{this.props.deck.cards[key].term}</span>
+            <span>{this.props.deck.cards[key].definition}</span>
+          </li>
+        );
+      });
+    }
+
     return (
       <div className="content">
 
@@ -45,6 +61,10 @@ export default class DeckShow extends React.Component{
           <h3>Description</h3>
           <p>{this.props.deck.description}</p>
         </div>
+
+        <ul>
+          {kards}
+        </ul>
       </div>
     );
   }
