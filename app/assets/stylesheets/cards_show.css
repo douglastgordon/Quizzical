@@ -1,0 +1,50 @@
+.deck-show .cards {
+  width: 99%;
+  margin-top: 100px;
+  border: 1px solid #bdbcbc;
+
+}
+
+.deck-show .terms {
+  display: block;
+  float:left;
+  width: 50%;
+}
+.deck-show .definitions {
+  display: block;
+  float:left;
+  width: 50%;
+  /*border-left: 1px solid #bdbcbc;*/
+}
+
+.deck-show .titles {
+  font-family: seravek;
+  font-weight: bold;
+  font-size: 17px;
+  color: #231f20;
+  padding-left: 10px;
+  /*padding-top: 30px;*/
+}
+
+.deck-show .card {
+  border-bottom: 1px solid #bdbcbc;
+  height: 35px;
+  font-family: seravek;
+  font-size: 17px;
+  color: #231f20;
+  padding-top: 20px;
+  padding-left: 10px;
+}
+
+.deck-show .card:last-child {
+  border: 0;
+}
+
+.deck-show .card .span {
+  display: inline-block;
+}
+
+.deck-show .card:hover {
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+
+}

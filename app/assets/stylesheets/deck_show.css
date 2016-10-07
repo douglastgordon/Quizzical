@@ -1,8 +1,10 @@
+
 .deck-show {
   display: block;
   width: 700px;
   margin: 0 auto;
   margin-top: 40px;
+  /*border: 1px solid red;*/
 }
 
 .deck-show .title{
@@ -36,6 +38,7 @@
   font-size: 17px;
   color: #231f20;
   padding-bottom: 5px;
+  padding-left: 10px;
 }
 
 .deck-show p {
@@ -44,9 +47,9 @@
   float: left;
   border: 1px solid #bdbcbc;
   border-radius: 5px;
-  padding: 10px 25px;
+  padding: 10px 10px;
   width: 650px;;
-
+  margin-bottom: 15px;
 }
 
 .deck-show .buttons {

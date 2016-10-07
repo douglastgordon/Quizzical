@@ -27,12 +27,15 @@ export default class DeckShow extends React.Component{
     let kards;
     if (this.props.deck.cards){
       const cardKeys = Object.keys(this.props.deck.cards);
-      debugger
-      kards = cardKeys.map((key)=>{
+      kards = cardKeys.map((key, idx)=>{
         return (
-          <li>
-            <span>{this.props.deck.cards[key].term}</span>
-            <span>{this.props.deck.cards[key].definition}</span>
+          <li className="card">
+            <div className="terms">
+              <span className="term">{this.props.deck.cards[key].term}</span>
+            </div>
+            <div className="definitions">
+              <span className="definition">{this.props.deck.cards[key].definition}</span>
+            </div>
           </li>
         );
       });
@@ -60,13 +63,20 @@ export default class DeckShow extends React.Component{
 
           <h3>Description</h3>
           <p>{this.props.deck.description}</p>
-        </div>
 
-        <ul>
-          {kards}
-        </ul>
+          <div className="titles">
+            <span className="terms">Terms</span>
+            <span className="definitions">Definitions</span>
+          </div>
+
+          <ul className="cards">
+            {kards}
+          </ul>
+
+        </div>
       </div>
     );
   }
 
 }
+// <span className="number">{idx+1}</span>
