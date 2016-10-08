@@ -9,6 +9,7 @@ export default class DeckShow extends React.Component{
     this.handleDestroy = this.handleDestroy.bind(this);
     this.handleUpdate = this.handleUpdate.bind(this);
     this.addNewCardForm = this.addNewCardForm.bind(this);
+    this.handleCardDestroy = this.handleCardDestroy.bind(this);
     this.forms = [];
   }
 
@@ -29,22 +30,28 @@ export default class DeckShow extends React.Component{
     this.forceUpdate();
   }
 
-  render(){
+  handleCardDestroy(e){
+    this.props.destroyCard(e.currentTarget.id);
+    this.forceUpdate();
+  }
 
-    console.log(this.props.deck.cards)
+  render(){
     let kards;
     if (this.props.deck.cards){
       const cardKeys = Object.keys(this.props.deck.cards);
       kards = cardKeys.map((key, idx)=>{
         return (
-          <li className="card">
-            <div className="terms">
-              <span className="term">{this.props.deck.cards[key].term}</span>
-            </div>
-            <div className="definitions">
-              <span className="definition">{this.props.deck.cards[key].definition}</span>
-            </div>
-          </li>
+          <div>
+            <li className="card">
+              <div className="terms">
+                <span className="term">{this.props.deck.cards[key].term}</span>
+              </div>
+              <div className="definitions">
+                <span className="definition">{this.props.deck.cards[key].definition}</span>
+              </div>
+            </li>
+            <button id={key} onClick={this.handleCardDestroy}>Delete</button>
+          </div>
         );
       });
     }

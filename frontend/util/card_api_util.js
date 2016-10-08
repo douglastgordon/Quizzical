@@ -9,3 +9,15 @@ export const makeCard = (card, success, error) => {
     error
   });
 };
+
+export const deleteCard = (id, success, error) => {
+  $.ajax({
+    method: 'DELETE',
+    url: `/api/cards/${id}`,
+    data: {
+      id
+    },
+    success,
+    error
+  });
+};

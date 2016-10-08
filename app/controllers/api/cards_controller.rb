@@ -12,8 +12,9 @@ class Api::CardsController < ApplicationController
 
   def destroy
     @card = Card.find(params[:id])
+    # deck_id = @card.deck_id
     @card.destroy
-    render :index
+    render :show
   end
 
   def update
