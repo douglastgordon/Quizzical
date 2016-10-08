@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import DeckIndex from './deck_index';
 import { requestDecks, requestDeck } from '../../actions/deck_actions';
+import { requestLanguages } from '../../actions/language_actions';
 
 const mapStateToProps = state => {
   return (
@@ -10,7 +11,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return (
-    {requestDecks: () => dispatch(requestDecks())}
+    {requestDecks: () => dispatch(requestDecks()),
+    requestLanguages: () => dispatch(requestLanguages())}
   );
 };
 

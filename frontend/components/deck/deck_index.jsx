@@ -9,6 +9,7 @@ export default class DeckIndex extends React.Component{
 
   componentWillMount(){
     this.props.requestDecks();
+    this.props.requestLanguages();
   }
 
   render(){
