@@ -10,6 +10,9 @@ export default class DeckShow extends React.Component{
     this.handleUpdate = this.handleUpdate.bind(this);
     this.addNewCardForm = this.addNewCardForm.bind(this);
     this.handleCardDestroy = this.handleCardDestroy.bind(this);
+    this.submitAllCards = this.submitAllCards.bind(this);
+    this.handleEnter = this.handleEnter.bind(this);
+
     this.forms = [];
   }
 
@@ -35,26 +38,46 @@ export default class DeckShow extends React.Component{
     this.forceUpdate();
   }
 
+  submitAllCards(e){
+  }
+
+  handleEnter(e){
+    if (e.which == 13 && !e.shiftKey){
+      e.preventDefault();
+      this.forms.forEach((form) => {
+        form.getDOMNode().dispatchEvent(new Event("submit"));
+      });
+    }
+  }
+
+
+
+
   render(){
     let kards;
     if (this.props.deck.cards){
       const cardKeys = Object.keys(this.props.deck.cards);
       kards = cardKeys.map((key, idx)=>{
+
         return (
           <div>
             <li className="card">
+
               <div className="terms">
                 <span className="term">{this.props.deck.cards[key].term}</span>
               </div>
+
               <div className="definitions">
                 <span className="definition">{this.props.deck.cards[key].definition}</span>
               </div>
+
             </li>
             <button id={key} onClick={this.handleCardDestroy}>Delete</button>
           </div>
         );
       });
     }
+
     let forms;
 
     return (
@@ -89,9 +112,8 @@ export default class DeckShow extends React.Component{
             {kards}
           </ul>
 
-
-          <div>
-            {this.forms}
+          <div onKeyPress={this.handleEnter}>
+              {this.forms}
           </div>
           <button onClick={this.addNewCardForm}>Add Card</button>
 
@@ -102,3 +124,5 @@ export default class DeckShow extends React.Component{
 
 }
 // <span className="number">{idx+1}</span>
+// <form onSubmit={this.submitAllCards}>
+// <button type='submit'>Real Submit</button>

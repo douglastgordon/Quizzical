@@ -48,6 +48,15 @@ export default class NewDeck extends React.Component{
               className='description'/>
           </label>
 
+          <select>
+            <option value="volvo">Volvo</option>
+            <option value="saab">Saab</option>
+            <option value="mercedes">Mercedes</option>
+            <option value="audi">Audi</option>
+          </select>
+
+
+
           <input type="submit" value="Create Set"/>
 
         </form>
