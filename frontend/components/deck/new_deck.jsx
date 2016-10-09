@@ -8,10 +8,13 @@ export default class NewDeck extends React.Component{
     this.state = {
       title: "",
       description: "",
-      author_id: this.props.currentUser.id
+      author_id: this.props.currentUser.id,
+      term_lang_id: "",
+      def_lang_id: ""
     };
-    this.handleSubmit = this.handleSubmit.bind(this);
     this.handleInput = this.handleInput.bind(this);
+    this.handleLanguageInput = this.handleLanguageInput.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleInput(e){
@@ -22,6 +25,15 @@ export default class NewDeck extends React.Component{
     }
   }
 
+  handleLanguageInput(e){
+    if (e.target.className === "term-lang"){
+      this.setState({term_lang_id: e.target.value});
+    } else if (e.target.className === "def-lang"){
+      this.setState({def_lang_id: e.target.value});
+    }
+    debugger
+  }
+
   handleSubmit(e){
     e.preventDefault();
     const deck = this.state;
@@ -29,6 +41,14 @@ export default class NewDeck extends React.Component{
   }
 
   render(){
+    let languageKeys = Object.keys(this.props.languages);
+    let languages = languageKeys.map((key) => {
+     return (
+       <option value={key}>
+         {this.props.languages[key].name}
+       </option>);
+    });
+
     return (
       <div className='newDeckContainer'>
         <h1>Make a new set</h1>
@@ -48,14 +68,23 @@ export default class NewDeck extends React.Component{
               className='description'/>
           </label>
 
-          <select>
-            <option value="volvo">Volvo</option>
-            <option value="saab">Saab</option>
-            <option value="mercedes">Mercedes</option>
-            <option value="audi">Audi</option>
-          </select>
+          <label>Term Language
+            <select onChange={this.handleLanguageInput}
+              value={this.state.term_lang_id}
+              className="term-lang">
+              <option value="select">Select Language</option>
+              {languages}
+            </select>
+          </label>
 
-
+          <label>Definition Language
+            <select onChange={this.handleLanguageInput}
+              value={this.state.def_lang_id}
+              className="def-lang">
+              <option value="select">Select Language</option>
+              {languages}
+            </select>
+          </label>
 
           <input type="submit" value="Create Set"/>
 
