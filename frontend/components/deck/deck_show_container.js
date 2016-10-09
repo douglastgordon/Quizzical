@@ -8,8 +8,8 @@ import { selectDeck } from '../../reducers/selectors';
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    deck: state.full_deck
-
+    deck: state.full_deck,
+    currentUser: state.session.currentUser
   };
 };
 

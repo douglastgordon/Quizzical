@@ -10,7 +10,6 @@ export default class DeckShow extends React.Component{
     this.handleUpdate = this.handleUpdate.bind(this);
     this.addNewCardForm = this.addNewCardForm.bind(this);
     this.handleCardDestroy = this.handleCardDestroy.bind(this);
-    this.submitAllCards = this.submitAllCards.bind(this);
     this.handleEnter = this.handleEnter.bind(this);
 
     this.forms = [];
@@ -38,11 +37,8 @@ export default class DeckShow extends React.Component{
     this.forceUpdate();
   }
 
-  submitAllCards(e){
-  }
-
   handleEnter(e){
-    if (e.which == 13 && !e.shiftKey){
+    if (e.which === 13 && !e.shiftKey){
       e.preventDefault();
       this.forms.forEach((form) => {
         form.getDOMNode().dispatchEvent(new Event("submit"));
@@ -50,19 +46,17 @@ export default class DeckShow extends React.Component{
     }
   }
 
-
-
-
   render(){
+
+    let forms;
+    // rendering decks cards
     let kards;
     if (this.props.deck.cards){
       const cardKeys = Object.keys(this.props.deck.cards);
       kards = cardKeys.map((key, idx)=>{
-
         return (
           <div>
             <li className="card">
-
               <div className="terms">
                 <span className="term">{this.props.deck.cards[key].term}</span>
               </div>
@@ -70,7 +64,6 @@ export default class DeckShow extends React.Component{
               <div className="definitions">
                 <span className="definition">{this.props.deck.cards[key].definition}</span>
               </div>
-
             </li>
             <button id={key} onClick={this.handleCardDestroy}>Delete</button>
           </div>
@@ -78,7 +71,28 @@ export default class DeckShow extends React.Component{
       });
     }
 
-    let forms;
+    let buttons;
+    let addButton;
+    if (this.props.deck.author_id === this.props.currentUser.id){
+
+      buttons = (
+        <div className="buttons">
+          <div className="button-container1">
+            <button onClick={this.handleDestroy} className="delete button">Delete</button>
+          </div>
+          <div className="button-container2">
+            <button onClick={this.handleUpdate} className="edit button">Edit</button>
+          </div>
+        </div>
+      );
+
+      addButton = (
+        <button onClick={this.addNewCardForm}>Add Card</button>
+      );
+
+    }
+
+
 
     return (
       <div className="content">
@@ -90,14 +104,11 @@ export default class DeckShow extends React.Component{
               <h1>{this.props.deck.title}</h1>
               <h2>{this.props.deck.author}</h2>
             </div>
-            <div className="buttons">
-              <div className="button-container1">
-                <button onClick={this.handleDestroy} className="delete button">Delete</button>
-              </div>
-              <div className="button-container2">
-                <button onClick={this.handleUpdate} className="edit button">Edit</button>
-              </div>
-            </div>
+
+            {buttons}
+
+
+
           </div>
 
           <h3>Description</h3>
@@ -115,8 +126,7 @@ export default class DeckShow extends React.Component{
           <div onKeyPress={this.handleEnter}>
               {this.forms}
           </div>
-          <button onClick={this.addNewCardForm}>Add Card</button>
-
+          {addButton}
         </div>
       </div>
     );
