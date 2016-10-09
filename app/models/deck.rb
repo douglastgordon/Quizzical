@@ -23,4 +23,18 @@ class Deck < ActiveRecord::Base
 
   has_many :cards
 
+  belongs_to(
+    :term_language,
+    class_name: :Language,
+    foreign_key: :term_lang_id,
+    primary_key: :id
+  )
+
+  belongs_to(
+    :definition_language,
+    class_name: :Language,
+    foreign_key: :def_lang_id,
+    primary_key: :id
+  )
+
 end

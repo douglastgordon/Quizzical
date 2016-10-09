@@ -11,5 +11,19 @@
 class Language < ActiveRecord::Base
 
   validates :name, presence: true, uniqueness: true
-  
+
+  has_many(
+    :from_decks,
+    class_name: :Deck,
+    foreign_key: :term_lang_id,
+    primary_key: :id
+  )
+
+  has_many(
+    :to_decks,
+    class_name: :Deck,
+    foreign_key: :def_lang_id,
+    primary_key: :id
+  )
+
 end

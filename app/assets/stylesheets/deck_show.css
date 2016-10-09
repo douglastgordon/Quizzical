@@ -4,7 +4,6 @@
   width: 700px;
   margin: 0 auto;
   margin-top: 40px;
-  /*border: 1px solid red;*/
 }
 
 .deck-show .title{
@@ -41,6 +40,15 @@
   padding-left: 10px;
 }
 
+.deck-show h4{
+  font-size: 15px;
+  padding-top: 3px;
+  margin-left: 10px;
+  font-family: seravek;
+  color: #757575;
+  font-weight: normal;
+}
+
 .deck-show p {
   font-family: seravek;
   font-size: 16px;
@@ -48,8 +56,51 @@
   border: 1px solid #bdbcbc;
   border-radius: 5px;
   padding: 10px 10px;
-  width: 650px;;
+  width: 675px;
   margin-bottom: 15px;
+}
+
+.deck-show .titles {
+  display: block;
+}
+
+.deck-show .term-title{
+  display: block;
+  float: left;
+  margin-left: -10px;
+}
+
+.term-title h3{
+  display: inline-block;
+  float: left;
+}
+.term-title h4{
+  display: inline-block;
+  float: right;
+  position: relative;
+  top: -1.5px;
+}
+
+.deck-show .cards {
+  margin-top: 0px;
+}
+
+.definition-title h3{
+  display: inline-block;
+  float: left;
+
+}
+.definition-title h4{
+  display: inline-block;
+  float: right;
+  position: relative;
+  top: -1.5px;
+}
+
+.deck-show .definition-title{
+  display: block;
+  float: right;
+  margin-right: 200px;
 }
 
 .deck-show .buttons {

@@ -7,21 +7,15 @@ export default class DeckShow extends React.Component{
   constructor(props){
     super(props);
     this.handleDestroy = this.handleDestroy.bind(this);
-    // this.handleUpdate = this.handleUpdate.bind(this);
     this.addNewCardForm = this.addNewCardForm.bind(this);
     this.handleCardDestroy = this.handleCardDestroy.bind(this);
     this.handleEnter = this.handleEnter.bind(this);
-
     this.forms = [];
   }
 
   handleDestroy(){
     this.props.destroyDeck(this.props.deck.id);
   }
-
-  // handleUpdate(){
-  //   hashHistory.push(`${this.props.deck.id}/edit`);
-  // }
 
   componentWillMount(){
     this.props.requestFullDeck(this.props.params.deckId);
@@ -107,19 +101,21 @@ export default class DeckShow extends React.Component{
               <h1>{this.props.deck.title}</h1>
               <h2>{this.props.deck.author}</h2>
             </div>
-
             {buttons}
-
-
-
           </div>
 
           <h3>Description</h3>
           <p>{this.props.deck.description}</p>
 
-          <div className="titles">
-            <span className="terms">Terms</span>
-            <span className="definitions">Definitions</span>
+          <div className="titles group">
+            <div className="term-title">
+              <h3>Terms</h3>
+              <h4>{this.props.deck.term_language}</h4>
+            </div>
+            <div className="definition-title">
+              <h3>Definitions</h3>
+              <h4>{this.props.deck.definition_language}</h4>
+            </div>
           </div>
 
           <ul className="cards">

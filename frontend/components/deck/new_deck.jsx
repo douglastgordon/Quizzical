@@ -51,9 +51,9 @@ export default class NewDeck extends React.Component{
     let languageKeys = Object.keys(this.props.languages);
     let languages = languageKeys.map((key) => {
      return (
-       <option value={key}>
+       <li value={key}>
          {this.props.languages[key].name}
-       </option>);
+       </li>);
     });
 
     let submitText;
@@ -67,45 +67,58 @@ export default class NewDeck extends React.Component{
     }
 
     return (
-      <div className='newDeckContainer'>
-        <h1>Make a new set</h1>
-        <form onSubmit={formSubmitAction}>
+      <div className="content">
+        <div className='new-deck-container'>
+          <h1>{submitText}</h1>
+          <form onSubmit={formSubmitAction}>
 
-          <label>Title
-            <input type='text'
-              value={this.state.title}
-              onInput={this.handleInput}
-              className='title'/>
-          </label>
+          <div className="language-choices">
+            <div className="term">
+              <h3>Term Language</h3>
+              <h4>select</h4>
+              <ul onChange={this.handleLanguageInput}
+                value={this.state.term_lang_id}
+                className="term-lang">
+                  <div className="options">
+                    {languages}
+                  </div>
+              </ul>
+            </div>
 
-          <label>Description
-            <input type='textarea'
-              value={this.state.description}
-              onInput={this.handleInput}
-              className='description'/>
-          </label>
+            <div className="defintion">
+              <h3>Definition Language</h3>
+              <button>select</button>
+              <ul onChange={this.handleLanguageInput}
+                value={this.state.def_lang_id}
+                className="def-lang">
+                <div className="options">
+                  {languages}
+                </div>
+              </ul>
+            </div>
+          </div>
 
-          <label>Term Language
-            <select onChange={this.handleLanguageInput}
-              value={this.state.term_lang_id}
-              className="term-lang">
-              <option value="select">Select Language</option>
-              {languages}
-            </select>
-          </label>
+            <div className="words">
+              <h3>Title</h3>
+              <input type='text'
+                value={this.state.title}
+                onInput={this.handleInput}
+                className='title'/>
 
-          <label>Definition Language
-            <select onChange={this.handleLanguageInput}
-              value={this.state.def_lang_id}
-              className="def-lang">
-              <option value="select">Select Language</option>
-              {languages}
-            </select>
-          </label>
 
-          <input type="submit" value={submitText}/>
+              <h3>Description</h3>
+              <input type='textarea'
+                value={this.state.description}
+                onInput={this.handleInput}
+                className='description'/>
+            </div>
 
-        </form>
+            <div className="submit-container">
+              <input className="submit" type="submit" value={submitText}/>
+            </div>
+
+          </form>
+        </div>
       </div>
     );
   }
