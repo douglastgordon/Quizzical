@@ -31,7 +31,6 @@ export default class NewDeck extends React.Component{
     } else if (e.target.className === "def-lang"){
       this.setState({def_lang_id: e.target.value});
     }
-    debugger
   }
 
   handleSubmit(e){

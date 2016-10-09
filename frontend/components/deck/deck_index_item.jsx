@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 import { hashHistory } from 'react-router';
 
 export default class DeckIndexItem extends React.Component{
@@ -17,7 +18,7 @@ export default class DeckIndexItem extends React.Component{
     return (
       <li>
         <h2 onClick={this.handleClick}>{this.props.deck.title}</h2>
-        <h3>{this.props.deck.author}</h3>
+        <Link to={"/users/"+this.props.deck.author_id}><h3>{this.props.deck.author}</h3></Link>
       </li>
     );
   }

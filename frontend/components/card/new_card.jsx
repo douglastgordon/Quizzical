@@ -22,7 +22,6 @@ export default class NewCard extends React.Component {
   }
 
   handleSubmit(e){
-    debugger
     this.setState({deck_id: this.props.deck_id});
     e.preventDefault();
     const card = this.state;
@@ -35,7 +34,7 @@ export default class NewCard extends React.Component {
 
   render(){
     return(
-    
+
         <form onSubmit={this.handleSubmit} ref="form">
           <input type='text' value={this.state.term} onInput={this.handleInput} className='term'/>
           <input type='text' value={this.state.definition} onInput={this.handleInput} className='definition'/>

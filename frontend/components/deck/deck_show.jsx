@@ -42,7 +42,6 @@ export default class DeckShow extends React.Component{
       e.preventDefault();
 
       this.forms.forEach((form) => {
-        debugger
         form.getDOMNode().dispatchEvent(new Event("submit"));
       });
     }

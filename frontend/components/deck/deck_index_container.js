@@ -4,7 +4,6 @@ import { requestDecks, requestDeck } from '../../actions/deck_actions';
 import { requestLanguages } from '../../actions/language_actions';
 
 const mapStateToProps = (state, ownProps) => {
-  debugger
   return (
   {decks: state.decks,
   user_id: ownProps.location.pathname.slice(7)}
