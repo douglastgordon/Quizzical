@@ -35,7 +35,11 @@ export default class Home extends React.Component {
               <img src={window.Quizzical.images.usericon}
                 className="usericon">
               </img>
-              <h2>{this.props.currentUser.username}</h2>
+
+              <Link to={"/users/"+this.props.currentUser.id}>
+                <h2>{this.props.currentUser.username}</h2>
+              </Link>
+
             </div>
             <button onClick={this.handleClick}>Log Out</button>
           </div>
@@ -45,7 +49,9 @@ export default class Home extends React.Component {
           <div className="buttons">
             <Link to="/home" className="home-button button"><h1>Home</h1></Link>
             <Link to="/create" className="create-set button"><h1>Create Deck</h1></Link>
-            <Link to={"/users/"+this.props.currentUser.id} className="my-sets button"><h1>My Decks</h1></Link>
+            <Link to={"/users/"+this.props.currentUser.id} className="my-sets button">
+              <h1>My Decks</h1>
+            </Link>
           </div>
         </div>
 

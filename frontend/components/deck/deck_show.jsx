@@ -1,5 +1,5 @@
 import React from 'react';
-import { hashHistory } from 'react-router';
+import { Link, hashHistory } from 'react-router';
 import NewCardContainer from '../card/new_card_container';
 
 export default class DeckShow extends React.Component{
@@ -7,7 +7,7 @@ export default class DeckShow extends React.Component{
   constructor(props){
     super(props);
     this.handleDestroy = this.handleDestroy.bind(this);
-    this.handleUpdate = this.handleUpdate.bind(this);
+    // this.handleUpdate = this.handleUpdate.bind(this);
     this.addNewCardForm = this.addNewCardForm.bind(this);
     this.handleCardDestroy = this.handleCardDestroy.bind(this);
     this.handleEnter = this.handleEnter.bind(this);
@@ -19,9 +19,9 @@ export default class DeckShow extends React.Component{
     this.props.destroyDeck(this.props.deck.id);
   }
 
-  handleUpdate(){
-    hashHistory.push(`${this.props.deck.id}/edit`);
-  }
+  // handleUpdate(){
+  //   hashHistory.push(`${this.props.deck.id}/edit`);
+  // }
 
   componentWillMount(){
     this.props.requestFullDeck(this.props.params.deckId);
@@ -82,7 +82,9 @@ export default class DeckShow extends React.Component{
             <button onClick={this.handleDestroy} className="delete button">Delete</button>
           </div>
           <div className="button-container2">
-            <button onClick={this.handleUpdate} className="edit button">Edit</button>
+            <Link to={"/edit/"+this.props.deck.id}>
+              <button className="edit button">Edit</button>
+            </Link>
           </div>
         </div>
       );
