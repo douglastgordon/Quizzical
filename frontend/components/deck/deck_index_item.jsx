@@ -17,11 +17,20 @@ export default class DeckIndexItem extends React.Component{
   render(){
     return (
       <li>
-        <div className="top-line group">
-          <h2 onClick={this.handleClick}>{this.props.deck.title}</h2>
-          <h4>{this.props.deck.term_language+" > "+this.props.deck.definition_language}</h4>
+        <div className="list-container">
+          <div className="top-line">
+            <h2 onClick={this.handleClick}>{this.props.deck.title}</h2>
+            <h4>{this.props.deck.term_language+" > "+this.props.deck.definition_language}</h4>
+          </div>
+          <br/>
+          <Link to={"/users/"+this.props.deck.author_id}><h3>{this.props.deck.author}</h3></Link>
+          <div className="right-side">
+            <div className="term-count">
+              <h5>{this.props.deck.card_count + " terms"}</h5>
+            </div>
+            <img src={window.Quizzical.images.enter} className="enter"></img>
+          </div>
         </div>
-        <Link to={"/users/"+this.props.deck.author_id}><h3>{this.props.deck.author}</h3></Link>
       </li>
     );
   }

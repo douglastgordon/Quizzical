@@ -2,6 +2,7 @@ json.extract! deck, :id, :title, :author_id, :description, :term_lang_id, :def_l
 json.author deck.author.username
 json.term_language deck.term_language.name
 json.definition_language deck.definition_language.name
+json.card_count deck.cards.count
 
 if show_cards
   json.cards do
