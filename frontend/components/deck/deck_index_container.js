@@ -3,9 +3,11 @@ import DeckIndex from './deck_index';
 import { requestDecks, requestDeck } from '../../actions/deck_actions';
 import { requestLanguages } from '../../actions/language_actions';
 
-const mapStateToProps = state => {
+const mapStateToProps = (state, ownProps) => {
+  debugger
   return (
-  {decks: state.decks}
+  {decks: state.decks,
+  user_id: ownProps.location.pathname.slice(7)}
   );
 };
 

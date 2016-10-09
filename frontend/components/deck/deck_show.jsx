@@ -40,7 +40,9 @@ export default class DeckShow extends React.Component{
   handleEnter(e){
     if (e.which === 13 && !e.shiftKey){
       e.preventDefault();
+
       this.forms.forEach((form) => {
+        debugger
         form.getDOMNode().dispatchEvent(new Event("submit"));
       });
     }

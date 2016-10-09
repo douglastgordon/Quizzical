@@ -44,8 +44,8 @@ export default class Home extends React.Component {
         <div className="sidebar group">
           <div className="buttons">
             <Link to="/home" className="home-button button"><h1>Home</h1></Link>
-            <Link to="/create" className="create-set button"><h1>Create Set</h1></Link>
-            <Link to="/home" className="my-sets button"><h1>My Sets</h1></Link>
+            <Link to="/create" className="create-set button"><h1>Create Deck</h1></Link>
+            <Link to={"/users/"+this.props.currentUser.id} className="my-sets button"><h1>My Decks</h1></Link>
           </div>
         </div>
 
