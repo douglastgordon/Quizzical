@@ -1,17 +1,35 @@
 import { connect } from 'react-redux';
 import NewDeck from './new_deck';
-import { createDeck } from '../../actions/deck_actions';
+import { createDeck, updateDeck } from '../../actions/deck_actions';
 
-const mapStateToProps = state => {
-  return (
-    {currentUser: state.session.currentUser,
-    languages: state.languages}
-  );
+const mapStateToProps = (state, ownProps) => {
+
+  let full_deck = {
+    id: "",
+    title: "",
+    description: "",
+    author_id: state.session.currentUser.id,
+    term_lang_id: "",
+    def_lang_id: ""
+  };
+  let edit = false;
+  if (ownProps.params.deckId){
+    full_deck = state.full_deck;
+    edit = true;
+  }
+
+  return ({
+    currentUser: state.session.currentUser,
+    languages: state.languages,
+    full_deck,
+    edit
+  });
 };
 
 const mapDispatchToProps = dispatch => {
   return (
-    {processForm: (deck) => dispatch(createDeck(deck))}
+    {processForm: (deck) => dispatch(createDeck(deck)),
+    updateForm: (deck) => dispatch(updateDeck(deck))}
   );
 };
 

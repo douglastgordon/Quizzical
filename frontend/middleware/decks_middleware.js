@@ -7,13 +7,15 @@ import {
   REQUEST_DECKS,
   REQUEST_DECK,
   DESTROY_DECK,
-  CREATE_DECK
+  CREATE_DECK,
+  UPDATE_DECK
  } from '../actions/deck_actions';
 import {
   fetchDecks,
   fetchDeck,
   makeDeck,
-  deleteDeck } from '../util/deck_api_util';
+  deleteDeck,
+  updateDeck } from '../util/deck_api_util';
 
 
 const DecksMiddleware = ({ getState, dispatch }) => next => action => {
@@ -39,6 +41,13 @@ const DecksMiddleware = ({ getState, dispatch }) => next => action => {
         return dispatch(receiveDeck(data));
       };
       makeDeck(action.deck, success);
+      return next(action);
+    case UPDATE_DECK:
+      success = data => {
+        hashHistory.push(`${data.id}`);
+        return dispatch(receiveDeck(data));
+      };
+      updateDeck(action.deck, success);
       return next(action);
     default:
       return next(action);

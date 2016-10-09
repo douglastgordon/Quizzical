@@ -6,15 +6,17 @@ export default class NewDeck extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      title: "",
-      description: "",
-      author_id: this.props.currentUser.id,
-      term_lang_id: "",
-      def_lang_id: ""
+      id: this.props.full_deck.id,
+      title: this.props.full_deck.title,
+      description: this.props.full_deck.description,
+      author_id: this.props.full_deck.author_id,
+      term_lang_id: this.props.full_deck.title.term_lang_id,
+      def_lang_id: this.props.full_deck.title.def_lang_id
     };
     this.handleInput = this.handleInput.bind(this);
     this.handleLanguageInput = this.handleLanguageInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleUpdate = this.handleUpdate.bind(this);
   }
 
   handleInput(e){
@@ -39,6 +41,12 @@ export default class NewDeck extends React.Component{
     this.props.processForm(deck);
   }
 
+  handleUpdate(e){
+    e.preventDefault();
+    const deck = this.state;
+    this.props.updateForm(deck);
+  }
+
   render(){
     let languageKeys = Object.keys(this.props.languages);
     let languages = languageKeys.map((key) => {
@@ -48,10 +56,20 @@ export default class NewDeck extends React.Component{
        </option>);
     });
 
+    let submitText;
+    let formSubmitAction;
+    if (this.props.edit){
+      submitText = "Update Deck";
+      formSubmitAction = this.handleUpdate;
+    } else {
+      submitText = "Create Deck";
+      formSubmitAction = this.handleSubmit;
+    }
+
     return (
       <div className='newDeckContainer'>
         <h1>Make a new set</h1>
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={formSubmitAction}>
 
           <label>Title
             <input type='text'
@@ -85,7 +103,7 @@ export default class NewDeck extends React.Component{
             </select>
           </label>
 
-          <input type="submit" value="Create Set"/>
+          <input type="submit" value={submitText}/>
 
         </form>
       </div>
