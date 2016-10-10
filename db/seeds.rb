@@ -5,3 +5,11 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+
+Language.destroy_all
+
+Language.create!({name: "English"})
+Language.create!({name: "German "})
+Language.create!({name: "French"})
+Language.create!({name: "Spanish"})
