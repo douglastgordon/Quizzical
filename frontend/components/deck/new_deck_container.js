@@ -10,7 +10,9 @@ const mapStateToProps = (state, ownProps) => {
     description: "",
     author_id: state.session.currentUser.id,
     term_lang_id: "",
-    def_lang_id: ""
+    def_lang_id: "",
+    term_language: "select",
+    definition_language: "select"
   };
   let edit = false;
   if (ownProps.params.deckId){

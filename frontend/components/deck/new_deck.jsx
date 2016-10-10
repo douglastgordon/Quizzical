@@ -10,8 +10,10 @@ export default class NewDeck extends React.Component{
       title: this.props.full_deck.title,
       description: this.props.full_deck.description,
       author_id: this.props.full_deck.author_id,
-      term_lang_id: this.props.full_deck.title.term_lang_id,
-      def_lang_id: this.props.full_deck.title.def_lang_id
+      term_lang_id: this.props.full_deck.term_lang_id,
+      def_lang_id: this.props.full_deck.def_lang_id,
+      term_language: this.props.full_deck.term_language,
+      definition_language: this.props.full_deck.definition_language
     };
     this.handleInput = this.handleInput.bind(this);
     this.handleLanguageInput = this.handleLanguageInput.bind(this);
@@ -28,10 +30,16 @@ export default class NewDeck extends React.Component{
   }
 
   handleLanguageInput(e){
-    if (e.target.className === "term-lang"){
-      this.setState({term_lang_id: e.target.value});
-    } else if (e.target.className === "def-lang"){
-      this.setState({def_lang_id: e.target.value});
+    if (e.target.parentElement.className === "term-lang"){
+      this.setState({
+        term_lang_id: e.target.value,
+        term_language: e.target.id
+      });
+    } else if (e.target.parentElement.className === "def-lang"){
+      this.setState({
+        def_lang_id: e.target.value,
+        definition_language: e.target.id
+      });
     }
   }
 
@@ -51,7 +59,9 @@ export default class NewDeck extends React.Component{
     let languageKeys = Object.keys(this.props.languages);
     let languages = languageKeys.map((key) => {
      return (
-       <li value={key}>
+       <li value={key}
+           id={this.props.languages[key].name}
+           onClick={this.handleLanguageInput}>
          {this.props.languages[key].name}
        </li>);
     });
@@ -72,31 +82,32 @@ export default class NewDeck extends React.Component{
           <h1>{submitText}</h1>
           <form onSubmit={formSubmitAction}>
 
-          <div className="language-choices">
-            <div className="term">
-              <h3>Term Language</h3>
-              <h4>select</h4>
-              <ul onChange={this.handleLanguageInput}
-                value={this.state.term_lang_id}
-                className="term-lang">
-                  <div className="options">
-                    {languages}
-                  </div>
-              </ul>
-            </div>
+            <div className="dropdowns">
 
-            <div className="defintion">
-              <h3>Definition Language</h3>
-              <button>select</button>
-              <ul onChange={this.handleLanguageInput}
-                value={this.state.def_lang_id}
-                className="def-lang">
-                <div className="options">
-                  {languages}
+              <div className="term-block">
+                <h3>Term Language</h3>
+                <div className="list-container group">
+                  <h4>{this.state.term_language}</h4>
+                  <ul value={this.state.term_lang_id}
+                      className="term-lang">
+                    {languages}
+                  </ul>
                 </div>
-              </ul>
+              </div>
+
+
+              <div className="definition-block">
+                <h3>Definition Language</h3>
+                <div className="list-container group">
+                  <h4>{this.state.definition_language}</h4>
+                  <ul value={this.state.def_lang_id}
+                      className="def-lang">
+                      {languages}
+                  </ul>
+                </div>
+              </div>
+
             </div>
-          </div>
 
             <div className="words">
               <h3>Title</h3>
