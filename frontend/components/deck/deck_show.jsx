@@ -11,6 +11,7 @@ export default class DeckShow extends React.Component{
     this.handleCardDestroy = this.handleCardDestroy.bind(this);
     this.handleEnter = this.handleEnter.bind(this);
     this.forms = [];
+    this.state = {cards: {}}
   }
 
   handleDestroy(){
@@ -26,19 +27,23 @@ export default class DeckShow extends React.Component{
     this.forceUpdate();
   }
 
+
   handleCardDestroy(e){
     this.props.destroyCard(e.currentTarget.id);
     this.forceUpdate();
   }
 
   handleEnter(e){
-    if (e.which === 13 && !e.shiftKey){
-      e.preventDefault();
-
-      this.forms.forEach((form) => {
-        form.getDOMNode().dispatchEvent(new Event("submit"));
-      });
+    let forms = e.currentTarget.children;
+    let cards = [];
+    for (var i = 0; i < forms.length-1; i++) {
+      cards.push({term: forms[i].children[0].value,
+       definition: forms[i].children[1].value,
+       deck_id: this.props.deck.id
+     });
     }
+    this.props.createCards(cards);
+    this.forms = [];
   }
 
   render(){
@@ -122,10 +127,13 @@ export default class DeckShow extends React.Component{
             {kards}
           </ul>
 
-          <div onKeyPress={this.handleEnter}>
+          <form onSubmit={this.handleEnter}>
               {this.forms}
-          </div>
-          {addButton}
+
+              <button type="submit">Submit</button>
+          </form>
+            {addButton}
+
         </div>
       </div>
     );

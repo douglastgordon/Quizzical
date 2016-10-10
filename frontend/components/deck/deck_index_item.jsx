@@ -16,10 +16,10 @@ export default class DeckIndexItem extends React.Component{
 
   render(){
     return (
-      <li>
+      <li onClick={this.handleClick}>
         <div className="list-container">
           <div className="top-line">
-            <h2 onClick={this.handleClick}>{this.props.deck.title}</h2>
+            <h2 >{this.props.deck.title}</h2>
             <h4>{this.props.deck.term_language+" > "+this.props.deck.definition_language}</h4>
           </div>
           <br/>

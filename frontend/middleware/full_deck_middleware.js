@@ -7,16 +7,14 @@ import {
 import { fetchDeck } from '../util/full_deck_api_util';
 
 import {
-  CREATE_CARD,
-  receiveCard,
+  CREATE_CARDS,
+  receiveCards,
   DESTROY_CARD,
   destroyCard,
   removeCard
  } from '../actions/card_actions';
 
-import { makeCard, deleteCard } from '../util/card_api_util';
-
-
+import { makeCards, deleteCard } from '../util/card_api_util';
 
 const FullDeckMiddleware = ({ getState, dispatch }) => next => action => {
   let success;
@@ -25,9 +23,9 @@ const FullDeckMiddleware = ({ getState, dispatch }) => next => action => {
       success = data => dispatch(receiveFullDeck(data));
       fetchDeck(action.id, success);
       return next(action);
-    case CREATE_CARD:
-      success = data => dispatch(receiveCard(data));
-      makeCard(action.card, success);
+    case CREATE_CARDS:
+      success = data => dispatch(receiveCards(data));
+      makeCards(action.cards, success);
       return next(action);
     case DESTROY_CARD:
       success = (res) =>dispatch(removeCard(res));

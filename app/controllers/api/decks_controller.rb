@@ -21,6 +21,10 @@ class Api::DecksController < ApplicationController
     render :show
   end
 
+  def make_cards
+    
+  end
+
   def destroy
     @deck = Deck.find(params[:id])
     @deck.destroy
@@ -30,7 +34,7 @@ class Api::DecksController < ApplicationController
   private
 
   def deck_params
-    params.require(:deck).permit(:title, :description, :author, :author_id, :term_lang_id, :def_lang_id)
+    params.require(:deck).permit(:title, :description, :author, :author_id, :term_lang_id, :def_lang_id, cards: [])
   end
 
 

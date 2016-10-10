@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import DeckShow from './deck_show';
 // Actions
 import { destroyDeck } from '../../actions/deck_actions';
-import { destroyCard, createCard } from '../../actions/card_actions';
+import { destroyCard, createCards } from '../../actions/card_actions';
 import { requestFullDeck } from '../../actions/full_deck_actions';
 import { selectDeck } from '../../reducers/selectors';
 
@@ -17,7 +17,7 @@ const mapDispatchToProps = dispatch => ({
   requestFullDeck: id => dispatch(requestFullDeck(id)),
   destroyDeck: id => dispatch(destroyDeck(id)),
   destroyCard: id => dispatch(destroyCard(id)),
-  createCard: card => dispatch(createCard(card))
+  createCards: cards => dispatch(createCards(cards))
 });
 
 export default connect(

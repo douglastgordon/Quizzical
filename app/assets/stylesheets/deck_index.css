@@ -110,3 +110,7 @@
   width: 100%;
   display: block;
 }
+
+.deck-index li:hover img {
+  fill: red;
+  }

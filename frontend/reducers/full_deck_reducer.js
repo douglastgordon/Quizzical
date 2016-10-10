@@ -1,9 +1,8 @@
 import merge from 'lodash/merge';
-// import update from 'react-addons-update';
 import update from 'immutability-helper';
 
 import { RECEIVE_FULL_DECK } from '../actions/full_deck_actions';
-import { RECEIVE_CARD, REMOVE_CARD } from '../actions/card_actions';
+import { RECEIVE_CARDS, REMOVE_CARD } from '../actions/card_actions';
 
 const FullDeckReducer = (state={}, action) => {
   let newCards;
@@ -11,14 +10,13 @@ const FullDeckReducer = (state={}, action) => {
   switch (action.type) {
     case RECEIVE_FULL_DECK:
       return action.fullDeck;
-    case RECEIVE_CARD:
-      newCards = merge({}, state.cards, {[action.card.id]: action.card});
+    case RECEIVE_CARDS:
+      newCards = merge({}, state.cards, action.cards);
         newState = merge({}, state, {
           cards: newCards
         });
         return newState;
     case REMOVE_CARD:
-
       let cardKeys = Object.keys(state.cards);
       newCards = {};
       cardKeys.forEach((key)=>{

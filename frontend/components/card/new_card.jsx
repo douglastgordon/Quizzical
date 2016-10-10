@@ -9,7 +9,7 @@ export default class NewCard extends React.Component {
       definition: "",
       deck_id: this.props.deck_id
     };
-    this.handleSubmit = this.handleSubmit.bind(this);
+    // this.handleSubmit = this.handleSubmit.bind(this);
     this.handleInput = this.handleInput.bind(this);
   }
 
@@ -21,28 +21,37 @@ export default class NewCard extends React.Component {
     }
   }
 
-  handleSubmit(e){
-    this.setState({deck_id: this.props.deck_id});
-    e.preventDefault();
-    const card = this.state;
-    this.props.processForm(card);
-    this.state.term = "";
-    this.state.definition = "";
-  }
+  // handleSubmit(e){
+  //   this.setState({deck_id: this.props.deck_id});
+  //   e.preventDefault();
+  //   const card = this.state;
+  //   this.props.processForm(card);
+  //   this.state.term = "";
+  //   this.state.definition = "";
+  // }
 
 
 
   render(){
     return(
 
-        <form onSubmit={this.handleSubmit} ref="form">
-          <input type='text' value={this.state.term} onInput={this.handleInput} className='term'/>
-          <input type='text' value={this.state.definition} onInput={this.handleInput} className='definition'/>
-          <button type='submit'>Submit</button>
-        </form>
+      <div className="card-form">
+
+        <input type='text'
+          value={this.state.term}
+          onInput={this.handleInput}
+          className='term'/>
+
+        <input type='text'
+          value={this.state.definition}
+          onInput={this.handleInput}
+          className='definition'/>
+
+      </div>
 
     );
   }
 }
 // <form onSubmit={this.handleSubmit} ref="form" >
   // </form>
+  // <button type='submit'>Submit</button>

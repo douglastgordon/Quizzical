@@ -6,13 +6,16 @@ class Api::CardsController < ApplicationController
   end
 
   def create
-    @card = Card.create(card_params)
+    @cards = JSON.parse(params["cards"])
+    @real_cards = []
+    @cards.map do |card|
+      @real_cards << Card.create(card)
+    end
     render :show
   end
 
   def destroy
     @card = Card.find(params[:id])
-    # deck_id = @card.deck_id
     @card.destroy
     render :show
   end
@@ -26,6 +29,6 @@ class Api::CardsController < ApplicationController
   private
 
   def card_params
-    params.require(:card).permit(:term, :definition, :audio_url, :deck_id)
+    params.require(:cards).permit(:term, :definition, :audio_url, :deck_id)
   end
 end
