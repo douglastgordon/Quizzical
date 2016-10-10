@@ -11,7 +11,6 @@ export default class DeckShow extends React.Component{
     this.handleCardDestroy = this.handleCardDestroy.bind(this);
     this.handleEnter = this.handleEnter.bind(this);
     this.forms = [];
-    this.state = {cards: {}}
   }
 
   handleDestroy(){
@@ -34,11 +33,12 @@ export default class DeckShow extends React.Component{
   }
 
   handleEnter(e){
+
     let forms = e.currentTarget.children;
     let cards = [];
     for (var i = 0; i < forms.length-1; i++) {
-      cards.push({term: forms[i].children[0].value,
-       definition: forms[i].children[1].value,
+      cards.push({term: forms[i].children[0].children[0].value,
+       definition: forms[i].children[1].children[0].value,
        deck_id: this.props.deck.id
      });
     }
@@ -55,18 +55,23 @@ export default class DeckShow extends React.Component{
       const cardKeys = Object.keys(this.props.deck.cards);
       kards = cardKeys.map((key, idx)=>{
         return (
-          <div>
             <li className="card">
               <div className="terms">
                 <span className="term">{this.props.deck.cards[key].term}</span>
               </div>
 
               <div className="definitions">
-                <span className="definition">{this.props.deck.cards[key].definition}</span>
+                <span className="definition">
+                  {this.props.deck.cards[key].definition}
+                </span>
+              </div>
+              <div className="right-buttons">
+                <img id={key}
+                  onClick={this.handleCardDestroy}
+                  src={window.Quizzical.images.delete}>
+                </img>
               </div>
             </li>
-            <button id={key} onClick={this.handleCardDestroy}>Delete</button>
-          </div>
         );
       });
     }
@@ -78,7 +83,9 @@ export default class DeckShow extends React.Component{
       buttons = (
         <div className="buttons">
           <div className="button-container1">
-            <button onClick={this.handleDestroy} className="delete button">Delete</button>
+            <button onClick={this.handleDestroy} className="delete button">
+              Delete
+            </button>
           </div>
           <div className="button-container2">
             <Link to={"/edit/"+this.props.deck.id}>
@@ -89,7 +96,9 @@ export default class DeckShow extends React.Component{
       );
 
       addButton = (
-        <button onClick={this.addNewCardForm}>Add Card</button>
+        <button className="add-card" onClick={this.addNewCardForm}>
+          <img src={window.Quizzical.images.add} className="add"></img>
+        </button>
       );
 
     }
@@ -127,12 +136,11 @@ export default class DeckShow extends React.Component{
             {kards}
           </ul>
 
-          <form onSubmit={this.handleEnter}>
+          <form className="new-card" onSubmit={this.handleEnter}>
               {this.forms}
-
-              <button type="submit">Submit</button>
+              <button className="hidden" type="submit">Submit</button>
           </form>
-            {addButton}
+          {addButton}
 
         </div>
       </div>

@@ -25,16 +25,18 @@ export default class NewCard extends React.Component {
 
       <div className="card-form">
 
-        <input type='text'
-          value={this.state.term}
-          onInput={this.handleInput}
-          className='term'/>
-
-        <input type='text'
-          value={this.state.definition}
-          onInput={this.handleInput}
-          className='definition'/>
-
+        <div className="term-box">
+          <input type='text'
+            value={this.state.term}
+            onInput={this.handleInput}
+            className="term"/>
+        </div>
+        <div className="definition-box">
+          <input type='text'
+            value={this.state.definition}
+            onInput={this.handleInput}
+            className='definition'/>
+        </div>
       </div>
 
     );

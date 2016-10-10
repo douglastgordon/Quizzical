@@ -1,39 +1,62 @@
-.deck-show .cards {
-  width: 99%;
-  margin-top: 100px;
-  border: 1px solid #bdbcbc;
-
-}
-
-.deck-show .terms {
-  display: block;
-  float:left;
-  width: 50%;
-}
-.deck-show .definitions {
-  display: block;
-  float:left;
-  width: 50%;
-  /*border-left: 1px solid #bdbcbc;*/
-}
-
 .deck-show .titles {
   font-family: seravek;
   font-weight: bold;
   font-size: 17px;
   color: #231f20;
   padding-left: 10px;
-  /*padding-top: 30px;*/
 }
 
+.deck-show .cards {
+  width: 99%;
+  margin-top: 100px;
+  border: 1px solid #bdbcbc;
+}
+
+
+
 .deck-show .card {
-  border-bottom: 1px solid #bdbcbc;
-  height: 35px;
+  height: 50px;
   font-family: seravek;
   font-size: 17px;
   color: #231f20;
-  padding-top: 20px;
+  width: 100%;
+  border-bottom: 1px solid #bdbcbc;
+}
+
+.deck-show .terms {
+  display: block;
+  float:left;
+  width: 40%;
+  height: 100%;
+
+
+}
+
+.deck-show .definitions {
+  display: block;
+  float:left;
+  width: 40%;
+  height: 100%;
+  border-left: 1px solid #bdbcbc;
+  border-right: 1px solid #bdbcbc;
+}
+
+.deck-show .right-buttons {
+  width: 19%;
+  float: left;
+}
+
+
+.deck-show .term {
   padding-left: 10px;
+  height: 50px;
+  line-height: 50px;
+}
+
+.deck-show .definition {
+  padding-left: 10px;
+  height: 50px;
+  line-height: 50px;
 }
 
 .deck-show .card:last-child {
@@ -46,5 +69,38 @@
 
 .deck-show .card:hover {
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
 
+.deck-show .add-card:hover {
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+
+.deck-show img {
+  display: block;
+  width: 20px;
+  height: auto;
+  float: right;
+  margin-top: 15px;
+  margin-right: 15px;
+  cursor: pointer;
+}
+
+.add-card {
+  border: 0;
+  outline: 0;
+  background: white;
+  height: 50px;
+  width: 99.2%;
+  border: 1px solid #bdbcbc;
+  margin-top: 10px;
+}
+
+.add-card .add {
+  height: 30px;
+  width: auto;
+  float: left;
+  margin-top: 8px;
+  margin-bottom: 7px;
+  padding-left: 5px;
 }

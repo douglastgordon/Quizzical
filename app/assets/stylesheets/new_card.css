@@ -1,0 +1,48 @@
+.card-form {
+  height: 50px;
+
+  width: 79.25%;
+  border: 1px solid #bdbcbc;
+  border-top: 0;
+
+
+}
+
+.card-form .term-box{
+  width: 50%;
+  float: left;
+  height: 100%;
+}
+.card-form .definition-box{
+  width: 49%;
+  float: left;
+  height: 100%;
+  border-left: 1px solid #bdbcbc;
+}
+
+.new-card .term{
+  background: transparent;
+  color: #231f20;
+  font-size: 17px;
+  display: block;
+  float:left;
+  width: 90%;
+  height: 50px;
+  border: 0;
+}
+
+.new-card .definition{
+  color: #231f20;
+  background: transparent;
+  font-size: 17px;
+  display: block;
+  float:left;
+  width: 90%;
+  height: 50px;
+  border: 0;
+
+}
+
+.hidden {
+  display: none;
+}
