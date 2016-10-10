@@ -9,7 +9,6 @@ export default class NewCard extends React.Component {
       definition: "",
       deck_id: this.props.deck_id
     };
-    // this.handleSubmit = this.handleSubmit.bind(this);
     this.handleInput = this.handleInput.bind(this);
   }
 
@@ -20,17 +19,6 @@ export default class NewCard extends React.Component {
       this.setState({definition: e.currentTarget.value});
     }
   }
-
-  // handleSubmit(e){
-  //   this.setState({deck_id: this.props.deck_id});
-  //   e.preventDefault();
-  //   const card = this.state;
-  //   this.props.processForm(card);
-  //   this.state.term = "";
-  //   this.state.definition = "";
-  // }
-
-
 
   render(){
     return(
@@ -52,6 +40,3 @@ export default class NewCard extends React.Component {
     );
   }
 }
-// <form onSubmit={this.handleSubmit} ref="form" >
-  // </form>
-  // <button type='submit'>Submit</button>

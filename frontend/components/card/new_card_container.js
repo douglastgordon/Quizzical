@@ -8,12 +8,5 @@ const mapStateToProps = state => {
     });
 };
 
-const mapDispatchToProps = dispatch => {
-    // {processForm: (card) => dispatch(createCard(card))}
-  return;
-};
-
 export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(NewCard);
+  mapStateToProps)(NewCard);
