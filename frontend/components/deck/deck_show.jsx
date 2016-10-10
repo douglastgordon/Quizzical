@@ -89,6 +89,11 @@ export default class DeckShow extends React.Component{
 
       buttons = (
         <div className="buttons">
+          <div className="button-container0">
+            <Link to={"/study/"+this.props.deck.id}>
+              <button className="study button">Study</button>
+            </Link>
+          </div>
           <div className="button-container1">
             <button onClick={this.handleDestroy} className="delete button">
               Delete
