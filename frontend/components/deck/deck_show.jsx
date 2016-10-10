@@ -37,10 +37,17 @@ export default class DeckShow extends React.Component{
     let forms = e.currentTarget.children;
     let cards = [];
     for (var i = 0; i < forms.length-1; i++) {
-      cards.push({term: forms[i].children[0].children[0].value,
-       definition: forms[i].children[1].children[0].value,
-       deck_id: this.props.deck.id
-     });
+      let term = forms[i].children[0].children[0].value;
+      let definition = forms[i].children[1].children[0].value;
+      if (definition !== "" && term !== ""){
+        cards.push({term,
+         definition,
+         deck_id: this.props.deck.id
+       });
+
+      }
+
+
     }
     this.props.createCards(cards);
     this.forms = [];
