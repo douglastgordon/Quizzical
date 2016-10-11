@@ -47,6 +47,7 @@ const Root = ({ store }) => {
           <Route path="/users/:id" component={DeckIndexContainer}/>
           <Route path="/create" component={NewDeckContainer}/>
           <Route path="/languages" component={Languages}/>
+          <Route path="/languages/:id" component={DeckIndexContainer}/>
           <Route path="/study/:deckId" component={Flashcard}/>
           <Route path="/edit/:deckId" component={NewDeckContainer}/>
           <Route path="/:deckId" component={DeckShowContainer}/>

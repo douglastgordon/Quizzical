@@ -8,17 +8,20 @@ export default class DeckIndex extends React.Component{
   }
 
   componentWillMount(){
+    debugger
     this.props.requestDecks();
     this.props.requestLanguages();
   }
 
   render(){
+    debugger
       let user;
       const deckKeys = Object.keys(this.props.decks);
       let decks = deckKeys.map((key) => {
-        console.log(`user id: ${this.props.user_id}`);
-        console.log(`deck author: ${this.props.decks[key].author_id}`);
-        if (this.props.user_id === "" || this.props.user_id == this.props.decks[key].author_id){
+        if ((this.props.user_id === "" && this.props.language_id === "") ||
+            (this.props.user_id !== "" &&  this.props.user_id == this.props.decks[key].author_id) ||
+            (this.props.language_id !== "" && this.props.language_id == this.props.decks[key].term_lang_id)){
+
           user = this.props.decks[key].author;
           return (
             <DeckIndexItem key={key} deck={this.props.decks[key]}/>

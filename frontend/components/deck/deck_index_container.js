@@ -4,10 +4,21 @@ import { requestDecks, requestDeck } from '../../actions/deck_actions';
 import { requestLanguages } from '../../actions/language_actions';
 
 const mapStateToProps = (state, ownProps) => {
-  return (
-  {decks: state.decks,
-  user_id: ownProps.location.pathname.slice(7)}
-  );
+  let languageId="";
+  let userId="";
+
+  if (ownProps.location.pathname.slice(1, 10) === "languages"){
+    languageId = ownProps.location.pathname.slice(11);
+  } else if (ownProps.location.pathname.slice(1,6) === "users") {
+    userId = ownProps.location.pathname.slice(7);
+    }
+
+  return ({
+    decks: state.decks,
+    user_id: userId,
+    language_id: languageId
+  });
+
 };
 
 const mapDispatchToProps = dispatch => {

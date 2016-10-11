@@ -1,2 +1,2 @@
 json.extract! language, :id, :name
-json.def_lang_count language.to_decks.count
+json.term_lang_count language.from_decks.count
