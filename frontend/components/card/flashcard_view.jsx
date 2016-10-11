@@ -60,13 +60,8 @@ export default class FlashcardView extends React.Component{
 
   componentDidMount(){
     window.addEventListener("keydown", this.changeCard);
-    // this.props.requestFullDeck(this.props.full_deck.id);
-
   }
 
-  // componentWillMount(){
-  //   this.props.requestFullDeck(this.props.full_deck.id);
-  // }
 
   render(){
       let tOrD = this.state.tOrD;
@@ -78,6 +73,18 @@ export default class FlashcardView extends React.Component{
         currentShow = this.props.full_deck.cards[currentCardId].definition;
       }
 
+      let nextButton = (
+        <button className="card-button right" onClick={this.nextCard}>
+          <img src={window.Quizzical.images.enter}></img>
+        </button>
+      );
+
+      let prevButton = (
+        <button className="card-button left" onClick={this.prevCard}>
+            <img src={window.Quizzical.images.enter}></img>
+        </button>
+      );
+
       return (
         <div className="content">
           <div className="deck-show group">
@@ -85,7 +92,9 @@ export default class FlashcardView extends React.Component{
             <div className="topline group">
               <div className="title">
                 <h1>{this.props.full_deck.title}</h1>
-                <h2>{this.props.full_deck.author}</h2>
+                <Link to={"/users/"+this.props.full_deck.author_id}>
+                  <h2>{this.props.full_deck.author}</h2>
+                </Link>
               </div>
               <div className="buttons">
                 <div className="button-container1">
@@ -99,22 +108,29 @@ export default class FlashcardView extends React.Component{
 
 
           <div className="flip-container">
-            <button className="card-button left" onClick={this.prevCard}>Previous</button>
 
             <div className="flip-card" onClick={this.flipCard}>
-              <div className="card-front"  >
+
+              <div className="card-front">
+                {prevButton}
+                  {nextButton}
                 <h1 className="card">
                   {currentShow}
                 </h1>
-              </div>
-              <div className="card-back">
-                <h1 className="card">
-                  {currentShow}
-                </h1>
+
               </div>
 
+              <div className="card-back">
+                {prevButton}
+                {nextButton}
+                <h1 className="card">
+                  {currentShow}
+                </h1>
+
+              </div>
+
+
             </div>
-            <button className="card-button right" onClick={this.nextCard}>Next</button>
 
             <h2>
               {(this.state.counter+1) + " of " + this.cardKeys.length}

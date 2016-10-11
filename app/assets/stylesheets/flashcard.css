@@ -1,5 +1,5 @@
 .flip-container{
-  width: 652px;
+  width: 548px;
   height: 440px;
   margin: 0 auto;
   margin-top: 30px;
@@ -14,6 +14,7 @@
   width: 548px;
   float: left;
   position: relative;
+  margin-bottom: 15px;
 }
 
 .flip-card.flipped .card-front {
@@ -70,27 +71,39 @@
   font-family: seravek;
   font-size: 25px;
   margin-left: 240px;
-  margin-top: 10px;
 }
 
 .card-button {
-  border: 1px solid #757575;
+  border: 0;
   background: none;
   border-radius: 0;
   height: 400px;
   width: 50px;
-  float: left;
+  cursor: pointer;
+  }
 
+
+.card-button img{
+  display: none;
+  height: 50px;
+  width: auto;
 }
 
-/*.left{
+.card-button:hover img {
+  display: block;
+}
+
+.card-button:focus {outline:0;}
+
+.left{
   float: left;
+}
+
+.left img{
+  transform: rotate(180deg);
+  margin-left: -12px;
 }
 
 .right {
   float: right;
-}*/
-
-/*.button-container2 {
-  float: right;
-}*/
+}
