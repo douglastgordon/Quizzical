@@ -105,9 +105,14 @@
 
 .deck-show .buttons {
   float: right;
-  width: 180px;
+  width: 250px;
 }
 
+.deck-show .button-container0 {
+  width: 80px;
+  height: 40px;
+  float: left;
+}
 .deck-show .button-container1 {
   width: 80px;
   height: 40px;
@@ -139,4 +144,10 @@
 .deck-show .edit {
   display: block;
   background: #fdc010;
+}
+
+.deck-show .study {
+  display: block;
+  background: #38a3dc;
+  margin-right: 10px;
 }
