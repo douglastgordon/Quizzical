@@ -11,6 +11,7 @@ import NewDeckContainer from './deck/new_deck_container';
 import DeckShowContainer from './deck/deck_show_container';
 import DeckIndexContainer from './deck/deck_index_container';
 import Flashcard from './card/flashcard_view_container';
+import Languages from './language/language_index_container';
 
 const Root = ({ store }) => {
 
@@ -45,6 +46,7 @@ const Root = ({ store }) => {
           <IndexRoute component={DeckIndexContainer}/>
           <Route path="/users/:id" component={DeckIndexContainer}/>
           <Route path="/create" component={NewDeckContainer}/>
+          <Route path="/languages" component={Languages}/>
           <Route path="/study/:deckId" component={Flashcard}/>
           <Route path="/edit/:deckId" component={NewDeckContainer}/>
           <Route path="/:deckId" component={DeckShowContainer}/>

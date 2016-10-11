@@ -53,5 +53,12 @@
 
 .home .my-sets:hover {
   background: #7C4DFF;
+}
 
+.home .languages {
+  background: #9C27B0
+}
+
+.home .languages:hover {
+  background: #E1BEE7;
 }

@@ -10,7 +10,6 @@ export default class Home extends React.Component {
 
   handleClick(){
     this.props.logout();
-    // hashHistory.push("/");
   }
 
   componentWillUpdate(nextProps){
@@ -51,6 +50,9 @@ export default class Home extends React.Component {
             <Link to="/create" className="create-set button"><h1>Create Deck</h1></Link>
             <Link to={"/users/"+this.props.currentUser.id} className="my-sets button">
               <h1>My Decks</h1>
+            </Link>
+            <Link to="/languages" className="languages button">
+              <h1>Languages</h1>
             </Link>
           </div>
         </div>
