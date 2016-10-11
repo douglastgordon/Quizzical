@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import FlashcardView from './flashcard_view';
-
+import { requestFullDeck } from '../../actions/full_deck_actions';
 
 const mapStateToProps = state => {
   return ({
@@ -8,4 +8,10 @@ const mapStateToProps = state => {
     });
 };
 
-export default connect(mapStateToProps)(FlashcardView);
+const mapDispatchToProps = dispatch => {
+  return ({
+    requestFullDeck: (id) => dispatch(requestFullDeck(id))
+  });
+};
+
+export default connect(mapStateToProps,mapDispatchToProps)(FlashcardView);

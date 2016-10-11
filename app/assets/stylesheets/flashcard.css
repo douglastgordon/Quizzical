@@ -1,5 +1,5 @@
 .flip-container{
-  width: 550px;
+  width: 652px;
   height: 440px;
   margin: 0 auto;
   margin-top: 30px;
@@ -12,8 +12,7 @@
   display: block;
   height: 400px;
   width: 548px;
-
-  position: relative;
+  float: left;
   position: relative;
 }
 
@@ -73,6 +72,24 @@
   margin-left: 240px;
   margin-top: 10px;
 }
+
+.card-button {
+  border: 1px solid #757575;
+  background: none;
+  border-radius: 0;
+  height: 400px;
+  width: 50px;
+  float: left;
+
+}
+
+/*.left{
+  float: left;
+}
+
+.right {
+  float: right;
+}*/
 
 /*.button-container2 {
   float: right;

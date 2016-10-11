@@ -15,7 +15,9 @@ export default class FlashcardView extends React.Component{
       tOrD: "term"
     };
     this.flipCard = this.flipCard.bind(this);
+    this.changeCard = this.changeCard.bind(this);
     this.nextCard = this.nextCard.bind(this);
+    this.prevCard = this.prevCard.bind(this);
   }
 
   flipCard(e){
@@ -29,7 +31,7 @@ export default class FlashcardView extends React.Component{
     }
   }
 
-  nextCard(e){
+  changeCard(e){
     let newCounter;
     if (e.keyCode === 39){
       newCounter = ((this.state.counter+1)%this.cardKeys.length);
@@ -43,9 +45,28 @@ export default class FlashcardView extends React.Component{
     }
   }
 
-  componentDidMount(){
-    window.addEventListener("keydown", this.nextCard);
+  nextCard(e){
+    let newCounter = ((this.state.counter+1)%this.cardKeys.length);
+    this.setState({counter: newCounter});
   }
+
+  prevCard(e){
+    let newCounter = (this.state.counter-1);
+    if (newCounter < 0){
+      newCounter = this.cardKeys.length - 1;
+    }
+    this.setState({counter: newCounter});
+  }
+
+  componentDidMount(){
+    window.addEventListener("keydown", this.changeCard);
+    // this.props.requestFullDeck(this.props.full_deck.id);
+
+  }
+
+  // componentWillMount(){
+  //   this.props.requestFullDeck(this.props.full_deck.id);
+  // }
 
   render(){
       let tOrD = this.state.tOrD;
@@ -76,7 +97,10 @@ export default class FlashcardView extends React.Component{
             </div>
           </div>
 
+
           <div className="flip-container">
+            <button className="card-button left" onClick={this.prevCard}>Previous</button>
+
             <div className="flip-card" onClick={this.flipCard}>
               <div className="card-front"  >
                 <h1 className="card">
@@ -88,7 +112,10 @@ export default class FlashcardView extends React.Component{
                   {currentShow}
                 </h1>
               </div>
+
             </div>
+            <button className="card-button right" onClick={this.nextCard}>Next</button>
+
             <h2>
               {(this.state.counter+1) + " of " + this.cardKeys.length}
             </h2>

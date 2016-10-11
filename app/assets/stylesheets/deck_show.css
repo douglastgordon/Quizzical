@@ -172,3 +172,7 @@
 .deck-show .back:hover {
   background: #BBDEFB;
 }
+
+h2:hover, h4:hover {
+  color: #212121;
+}
