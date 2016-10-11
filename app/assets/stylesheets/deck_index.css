@@ -77,8 +77,6 @@
 .deck-index li .top-line {
   display: inline-block;
   flex: 0 1 200px;
-  /*width: 200px;
-  height: 40px;*/
   margin: 0;
 }
 .deck-index li .top-line h2 {
@@ -110,7 +108,3 @@
   width: 100%;
   display: block;
 }
-
-.deck-index li:hover img {
-  fill: red;
-  }

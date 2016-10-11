@@ -1,0 +1,82 @@
+.language-index {
+  display: block;
+  width: 700px;
+  margin: 0 auto;
+  margin-top: 40px;
+}
+
+.language-index h1 {
+  font-size: 40px;
+  margin-bottom: 30px;
+  font-family: seravek;
+  color: #212121;
+}
+
+
+.language-index h2 {
+  font-size: 30px;
+  font-family: seravek;
+  color: #212121;
+}
+
+
+.language-index ul {
+  border: 1px solid #bdbcbc;
+  border-bottom: 0;
+
+}
+
+.language-index li {
+  display: block;
+  height: 75px;
+  border-bottom: 1px solid #bdbcbc;
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  cursor: pointer;
+}
+
+.language-index li:hover {
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.language-index li .top-line {
+  display: inline-block;
+  flex: 0 1 200px;
+  margin: 0;
+}
+.language-index li .top-line h2 {
+  display: inline-block;
+  float: left;
+  padding-left: 10px;
+  padding-top: 22px;
+}
+
+.language-index .right-side{
+  float: right;
+  width: 100px;
+  height: 100%;
+  text-align: center;
+  margin-top: 0px;
+}
+
+.language-index .list-container {
+  height: 100%;
+  width: 100%;
+  display: block;
+}
+
+
+.language-index .enter {
+  display: block;
+  width: 40px;
+  height: auto;
+  float: right;
+  margin-top: 20px;
+}
+
+.language-index h5 {
+  font-family: seravek;
+  display: inline-block;
+  float: left;
+  color: #757575;
+  margin-top: 30px;
+}
