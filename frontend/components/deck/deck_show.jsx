@@ -29,7 +29,8 @@ export default class DeckShow extends React.Component{
 
   handleCardDestroy(e){
     this.props.destroyCard(e.currentTarget.id);
-    this.forceUpdate();
+    this.props.requestFullDeck(this.props.params.deckId);
+
   }
 
   handleEnter(e){
