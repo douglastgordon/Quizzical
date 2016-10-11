@@ -135,7 +135,6 @@
   height: 100%;
   font-size: 15px;
   float: right;
-
 }
 
 .deck-show .delete {
@@ -144,7 +143,7 @@
 }
 
 .deck-show .delete:hover {
-  background: #ef4437;
+  background: #FFCDD2;
 }
 
 .deck-show .edit {
@@ -152,7 +151,7 @@
   background: #fdc010;
 }
 .deck-show .edit:hover {
-  background: #fdc010;
+  background: #FFECB3;
 }
 
 .deck-show .study {
@@ -160,8 +159,8 @@
   background: #38a3dc;
   margin-right: 10px;
 }
-.deck-show .study {
-  background: #38a3dc;
+.deck-show .study:hover {
+  background: #BBDEFB;
 }
 
 .deck-show .back {
@@ -170,6 +169,6 @@
   margin-right: 10px;
 }
 
-.deck-show .back {
-  background: #38a3dc;
+.deck-show .back:hover {
+  background: #BBDEFB;
 }
