@@ -107,3 +107,33 @@
   width: 100%;
   display: block;
 }
+
+.deck-index .search-field {
+  margin-bottom: 25px;
+  height: 50px;
+  border: 0;
+  border-radius: 2px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  position: relative;
+}
+
+.deck-index .search-field input {
+  display: inline-block;
+  height: 40px;
+  width: 90%;
+  margin: 0 auto;
+  position: absolute;
+  border: 0;
+  font-family: seravek;
+  font-size: 20px;
+  vertical-align: middle;
+  padding-top: 5px;
+  padding-left: 5px;
+}
+
+.deck-index .search {
+  margin-top: 12px;
+  margin-left: 10px;
+  width: 30px;
+  height: auto;
+}

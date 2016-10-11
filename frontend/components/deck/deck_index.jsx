@@ -24,6 +24,7 @@ export default class DeckIndex extends React.Component{
       let user;
       const deckKeys = Object.keys(this.props.decks);
       let filter = new RegExp(this.state.searchQuery);
+      let count = 0;
       let decks = deckKeys.map((key) => {
         if (((this.props.user_id === "" && this.props.language_id === "") ||
             (this.props.user_id !== "" &&  this.props.user_id == this.props.decks[key].author_id) ||
@@ -33,6 +34,7 @@ export default class DeckIndex extends React.Component{
             (filter.test(this.props.decks[key].term_language)))){
 
           user = this.props.decks[key].author;
+          count++;
           return (
             <DeckIndexItem key={key} deck={this.props.decks[key]}/>
           );
@@ -52,15 +54,26 @@ export default class DeckIndex extends React.Component{
         title = `${this.props.languages[this.props.language_id].name} decks`;
       }
 
-
+      let nothingHere;
+      if (count=== 0){
+        nothingHere = "Sorry, there's nothing here!";
+      }
     return (
       <div className='content'>
-        <input type="text" onInput={this.handleSearch} value={this.state.searchQuery}></input>
         <div className='deck-index group'>
+          <div className="search-field">
+            <img className="search" src={window.Quizzical.images.search}></img>
+            <input type="text"
+              onInput={this.handleSearch}
+              value={this.state.searchQuery}>
+            </input>
+          </div>
           <h1>{title}</h1>
           <ul className='deck-list'>
             {decks}
           </ul>
+          <br/>
+          <h2>{nothingHere}</h2>
         </div>
     </div>
     );
