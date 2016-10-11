@@ -137,12 +137,21 @@
   float: right;
 
 }
+
 .deck-show .delete {
   display: block;
   background: #ef4437;
 }
+
+.deck-show .delete:hover {
+  background: #ef4437;
+}
+
 .deck-show .edit {
   display: block;
+  background: #fdc010;
+}
+.deck-show .edit:hover {
   background: #fdc010;
 }
 
@@ -151,8 +160,16 @@
   background: #38a3dc;
   margin-right: 10px;
 }
+.deck-show .study {
+  background: #38a3dc;
+}
+
 .deck-show .back {
   display: block;
   background: #38a3dc;
   margin-right: 10px;
+}
+
+.deck-show .back {
+  background: #38a3dc;
 }

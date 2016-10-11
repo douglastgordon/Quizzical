@@ -61,6 +61,17 @@ export default class DeckShow extends React.Component{
     if (this.props.deck.cards){
       const cardKeys = Object.keys(this.props.deck.cards);
       kards = cardKeys.map((key, idx)=>{
+
+        let deleteButton;
+        if (this.props.currentUser.id === this.props.deck.author_id){
+          deleteButton = (
+            <img id={key}
+              onClick={this.handleCardDestroy}
+              src={window.Quizzical.images.delete}>
+            </img>
+          );
+        }
+
         return (
             <li className="card">
               <div className="terms">
@@ -72,38 +83,51 @@ export default class DeckShow extends React.Component{
                   {this.props.deck.cards[key].definition}
                 </span>
               </div>
+
               <div className="right-buttons">
-                <img id={key}
-                  onClick={this.handleCardDestroy}
-                  src={window.Quizzical.images.delete}>
-                </img>
+                {deleteButton}
               </div>
             </li>
         );
       });
     }
 
-    let buttons;
+
+
+    let buttons = (
+      <div className="buttons">
+        <div className="button-container1">
+          <Link to={"/study/"+this.props.deck.id}>
+            <button className="study button">Study</button>
+          </Link>
+        </div>
+      </div>
+      );
     let addButton;
+
     if (this.props.deck.author_id === this.props.currentUser.id){
 
       buttons = (
         <div className="buttons">
+
           <div className="button-container0">
             <Link to={"/study/"+this.props.deck.id}>
               <button className="study button">Study</button>
             </Link>
           </div>
+
           <div className="button-container1">
             <button onClick={this.handleDestroy} className="delete button">
               Delete
             </button>
           </div>
+
           <div className="button-container2">
             <Link to={"/edit/"+this.props.deck.id}>
               <button className="edit button">Edit</button>
             </Link>
           </div>
+
         </div>
       );
 
@@ -114,8 +138,6 @@ export default class DeckShow extends React.Component{
       );
 
     }
-
-
 
     return (
       <div className="content">
@@ -158,8 +180,4 @@ export default class DeckShow extends React.Component{
       </div>
     );
   }
-
 }
-// <span className="number">{idx+1}</span>
-// <form onSubmit={this.submitAllCards}>
-// <button type='submit'>Real Submit</button>
