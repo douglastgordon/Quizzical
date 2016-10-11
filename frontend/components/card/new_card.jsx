@@ -37,6 +37,7 @@ export default class NewCard extends React.Component {
             onInput={this.handleInput}
             className='definition'/>
         </div>
+
       </div>
 
     );

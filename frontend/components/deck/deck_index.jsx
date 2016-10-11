@@ -16,6 +16,8 @@ export default class DeckIndex extends React.Component{
     this.props.requestLanguages();
   }
 
+
+
   handleSearch(e){
     this.setState({searchQuery: e.currentTarget.value });
   }
@@ -46,13 +48,14 @@ export default class DeckIndex extends React.Component{
       decks = decks.reverse();
       console.log(this.props.language_id);
       let title;
-      if (count===0){
+      if (count === 0){
         title = "Sorry, there's nothing here!";
-      } else if (this.props.user_id=== "" && this.props.language_id === ""){
+      } else if (this.props.user_id === "" && this.props.language_id === ""){
         title = "All Decks";
       } else if (this.props.user_id !== ""){
         title = `${user}'s Decks`;
       } else if (this.props.language_id !== ""){
+        debugger
         title = `${this.props.languages[this.props.language_id].name} decks`;
       }
 

@@ -62,6 +62,7 @@
   margin-bottom: 3px;
   font-family: Lato;
   font-weight: normal;;
+  transition: border 0.5s ease-out;
 }
 
 .entryForm input:focus, input.focus{
@@ -77,10 +78,6 @@
   letter-spacing: 2px;
   color: #757575;
   padding-bottom: 30px;
-}
-
-.entryForm label  {
-
 }
 
 .entryForm button {

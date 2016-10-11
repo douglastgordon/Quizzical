@@ -21,6 +21,7 @@ const mapStateToProps = (state, ownProps) => {
   }
 
   return ({
+    errors: state.session.errors,
     currentUser: state.session.currentUser,
     languages: state.languages,
     full_deck,

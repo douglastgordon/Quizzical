@@ -2,7 +2,14 @@ class Api::DecksController < ApplicationController
 
   def create
     @deck = Deck.create(deck_params)
-    render :show
+    if @deck
+      render :show
+    else
+      render(
+        json: ["please fill out all the fields to create a deck"],
+        status: 401
+      )
+    end
   end
 
   def index
@@ -22,7 +29,7 @@ class Api::DecksController < ApplicationController
   end
 
   def make_cards
-    
+
   end
 
   def destroy

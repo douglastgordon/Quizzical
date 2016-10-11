@@ -129,6 +129,7 @@ export default class NewDeck extends React.Component{
             </div>
 
           </form>
+          <h4>{this.state.errors}</h4>
         </div>
       </div>
     );

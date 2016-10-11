@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161007135809) do
+ActiveRecord::Schema.define(version: 20161011214332) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,15 +29,13 @@ ActiveRecord::Schema.define(version: 20161007135809) do
     t.string   "title",        null: false
     t.integer  "author_id",    null: false
     t.text     "description"
-    t.integer  "term_lang_id"
-    t.integer  "def_lang_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.integer  "term_lang_id", null: false
+    t.integer  "def_lang_id",  null: false
   end
 
   add_index "decks", ["author_id"], name: "index_decks_on_author_id", using: :btree
-  add_index "decks", ["def_lang_id"], name: "index_decks_on_def_lang_id", using: :btree
-  add_index "decks", ["term_lang_id"], name: "index_decks_on_term_lang_id", using: :btree
 
   create_table "languages", force: :cascade do |t|
     t.string   "name",       null: false

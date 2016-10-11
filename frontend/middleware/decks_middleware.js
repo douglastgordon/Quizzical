@@ -17,9 +17,15 @@ import {
   deleteDeck,
   updateDeck } from '../util/deck_api_util';
 
+import { receiveErrors } from '../actions/session_actions';
+
 
 const DecksMiddleware = ({ getState, dispatch }) => next => action => {
   let success;
+  const errorCallback = xhr => {
+    const errors = xhr.responseJSON;
+    dispatch(receiveErrors(errors));
+  };
   switch(action.type){
     case REQUEST_DECKS:
       success = data => dispatch(receiveDecks(data));
@@ -40,7 +46,7 @@ const DecksMiddleware = ({ getState, dispatch }) => next => action => {
         hashHistory.push(`${data.id}`);
         return dispatch(receiveDeck(data));
       };
-      makeDeck(action.deck, success);
+      makeDeck(action.deck, success, errorCallback);
       return next(action);
     case UPDATE_DECK:
       success = data => {
