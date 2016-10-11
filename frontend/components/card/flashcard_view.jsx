@@ -15,11 +15,7 @@ export default class FlashcardView extends React.Component{
     };
     //remember to mod
     this.flipCard = this.flipCard.bind(this);
-    this.something = (
-      <h1 className="term">
-        {this.props.full_deck.cards[this.cardKeys[this.state.counter]].term}
-      </h1>
-    );
+    this.nextCard = this.nextCard.bind(this);
   }
 
   flipCard(e){
@@ -28,6 +24,24 @@ export default class FlashcardView extends React.Component{
     } else if (this.state.tOrD === "definition"){
       this.setState({tOrD: "term"});
     }
+  }
+
+  nextCard(e){
+    let newCounter;
+    if (e.keyCode === 39){
+      newCounter = ((this.state.counter+1)%this.cardKeys.length);
+      this.setState({counter: newCounter});
+    } else if (e.keyCode === 37){
+      newCounter = (this.state.counter-1);
+      if (newCounter < 0){
+        newCounter = this.cardKeys.length - 1;
+      }
+      this.setState({counter: newCounter});
+    }
+  }
+
+  componentDidMount(){
+    window.addEventListener("keydown", this.nextCard);
   }
 
   render(){
@@ -41,7 +55,7 @@ export default class FlashcardView extends React.Component{
       }
 
       return (
-        <div onClick={this.flipCard} on>
+        <div className="flip-card" onClick={this.flipCard} >
           <h1 className="card">
             {currentShow}
           </h1>
