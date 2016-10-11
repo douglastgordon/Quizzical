@@ -46,7 +46,9 @@ export default class DeckIndex extends React.Component{
       decks = decks.reverse();
       console.log(this.props.language_id);
       let title;
-      if (this.props.user_id=== "" && this.props.language_id === ""){
+      if (count===0){
+        title = "Sorry, there's nothing here!";
+      } else if (this.props.user_id=== "" && this.props.language_id === ""){
         title = "All Decks";
       } else if (this.props.user_id !== ""){
         title = `${user}'s Decks`;
@@ -54,10 +56,6 @@ export default class DeckIndex extends React.Component{
         title = `${this.props.languages[this.props.language_id].name} decks`;
       }
 
-      let nothingHere;
-      if (count=== 0){
-        nothingHere = "Sorry, there's nothing here!";
-      }
     return (
       <div className='content'>
         <div className='deck-index group'>
@@ -73,7 +71,7 @@ export default class DeckIndex extends React.Component{
             {decks}
           </ul>
           <br/>
-          <h2>{nothingHere}</h2>
+
         </div>
     </div>
     );
