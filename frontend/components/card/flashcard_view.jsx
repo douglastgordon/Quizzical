@@ -19,6 +19,9 @@ export default class FlashcardView extends React.Component{
   }
 
   flipCard(e){
+    let classList = e.currentTarget.classList;
+    classList.contains("flipped") === true ? classList.remove("flipped") : classList.add("flipped");
+
     if (this.state.tOrD === "term"){
       this.setState({tOrD: "definition"});
     } else if (this.state.tOrD === "definition"){
@@ -55,10 +58,24 @@ export default class FlashcardView extends React.Component{
       }
 
       return (
-        <div className="flip-card" onClick={this.flipCard} >
-          <h1 className="card">
-            {currentShow}
-          </h1>
+        <div className="content">
+          <div className="flip-container">
+            <div className="flip-card" onClick={this.flipCard}>
+              <div className="card-front"  >
+                <h1 className="card">
+                  {currentShow}
+                </h1>
+              </div>
+              <div className="card-back">
+                <h1 className="card">
+                  {currentShow}
+                </h1>
+              </div>
+            </div>
+            <h2>
+              {(this.state.counter+1) + " of " + this.cardKeys.length}
+            </h2>
+          </div>
         </div>
       );
   }
