@@ -27,6 +27,8 @@
   color: #212121;
 }
 
+
+
 .deck-index h3 {
   display: inline-block;
   font-size: 15px;
@@ -35,9 +37,6 @@
   padding-left: 10px;
 }
 
-.deck-index h3:hover {
-  color: #212121;
-}
 
 
 .deck-index h5 {

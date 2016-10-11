@@ -23,7 +23,11 @@ export default class DeckIndexItem extends React.Component{
             <h4>{this.props.deck.term_language+" > "+this.props.deck.definition_language}</h4>
           </div>
           <br/>
-          <Link to={"/users/"+this.props.deck.author_id}><h3>{this.props.deck.author}</h3></Link>
+
+            <Link to={"/users/"+this.props.deck.author_id}>
+                <h3>{this.props.deck.author}</h3>
+            </Link>
+
           <div className="right-side">
             <div className="term-count">
               <h5>{this.props.deck.card_count + " terms"}</h5>

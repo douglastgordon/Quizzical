@@ -8,13 +8,11 @@ export default class DeckIndex extends React.Component{
   }
 
   componentWillMount(){
-    debugger
     this.props.requestDecks();
     this.props.requestLanguages();
   }
 
   render(){
-    debugger
       let user;
       const deckKeys = Object.keys(this.props.decks);
       let decks = deckKeys.map((key) => {
@@ -30,6 +28,8 @@ export default class DeckIndex extends React.Component{
           return;
         }
       });
+
+      decks = decks.reverse();
 
       let title;
       if (this.props.user_id===""){
