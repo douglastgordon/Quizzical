@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 export default class FlashcardView extends React.Component{
 
@@ -13,7 +14,6 @@ export default class FlashcardView extends React.Component{
       counter: 0,
       tOrD: "term"
     };
-    //remember to mod
     this.flipCard = this.flipCard.bind(this);
     this.nextCard = this.nextCard.bind(this);
   }
@@ -66,11 +66,15 @@ export default class FlashcardView extends React.Component{
                 <h1>{this.props.full_deck.title}</h1>
                 <h2>{this.props.full_deck.author}</h2>
               </div>
-
+              <div className="buttons">
+                <div className="button-container2">
+                  <Link to={"/"+this.props.full_deck.id}>
+                    <button className="back button">Back</button>
+                  </Link>
+                </div>
+              </div>
             </div>
           </div>
-
-
 
           <div className="flip-container">
             <div className="flip-card" onClick={this.flipCard}>
