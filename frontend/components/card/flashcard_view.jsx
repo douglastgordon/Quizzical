@@ -59,6 +59,19 @@ export default class FlashcardView extends React.Component{
 
       return (
         <div className="content">
+          <div className="deck-show group">
+
+            <div className="topline group">
+              <div className="title">
+                <h1>{this.props.full_deck.title}</h1>
+                <h2>{this.props.full_deck.author}</h2>
+              </div>
+
+            </div>
+          </div>
+
+
+
           <div className="flip-container">
             <div className="flip-card" onClick={this.flipCard}>
               <div className="card-front"  >
