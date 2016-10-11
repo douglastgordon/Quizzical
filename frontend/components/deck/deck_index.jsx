@@ -5,6 +5,10 @@ export default class DeckIndex extends React.Component{
 
   constructor(props) {
     super(props);
+    this.handleSearch = this.handleSearch.bind(this);
+    this.state = {
+      searchQuery: ""
+    };
   }
 
   componentWillMount(){
@@ -12,13 +16,21 @@ export default class DeckIndex extends React.Component{
     this.props.requestLanguages();
   }
 
+  handleSearch(e){
+    this.setState({searchQuery: e.currentTarget.value });
+  }
+
   render(){
       let user;
       const deckKeys = Object.keys(this.props.decks);
+      let filter = new RegExp(this.state.searchQuery);
       let decks = deckKeys.map((key) => {
-        if ((this.props.user_id === "" && this.props.language_id === "") ||
+        if (((this.props.user_id === "" && this.props.language_id === "") ||
             (this.props.user_id !== "" &&  this.props.user_id == this.props.decks[key].author_id) ||
-            (this.props.language_id !== "" && this.props.language_id == this.props.decks[key].term_lang_id)){
+            (this.props.language_id !== "" && this.props.language_id == this.props.decks[key].term_lang_id)) &&
+            ((filter.test(this.props.decks[key].title)) ||
+            (filter.test(this.props.decks[key].author)) ||
+            (filter.test(this.props.decks[key].term_language)))){
 
           user = this.props.decks[key].author;
           return (
@@ -43,6 +55,7 @@ export default class DeckIndex extends React.Component{
 
     return (
       <div className='content'>
+        <input type="text" onInput={this.handleSearch} value={this.state.searchQuery}></input>
         <div className='deck-index group'>
           <h1>{title}</h1>
           <ul className='deck-list'>
