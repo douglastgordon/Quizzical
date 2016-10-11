@@ -148,7 +148,9 @@ export default class DeckShow extends React.Component{
           <div className="topline group">
             <div className="title">
               <h1>{this.props.deck.title}</h1>
-              <h2>{this.props.deck.author}</h2>
+              <Link to={"/users/"+this.props.deck.author_id}>
+                <h2>{this.props.deck.author}</h2>
+              </Link>
             </div>
             {buttons}
           </div>
@@ -159,11 +161,15 @@ export default class DeckShow extends React.Component{
           <div className="titles group">
             <div className="term-title">
               <h3>Terms</h3>
-              <h4>{this.props.deck.term_language}</h4>
+              <Link to={"/languages/"+this.props.deck.term_lang_id}>
+                <h4>{this.props.deck.term_language}</h4>
+              </Link>
             </div>
             <div className="definition-title">
               <h3>Definitions</h3>
-              <h4>{this.props.deck.definition_language}</h4>
+              <Link to={"/languages/"+this.props.deck.def_lang_id}>
+                <h4>{this.props.deck.definition_language}</h4>
+              </Link>
             </div>
           </div>
 

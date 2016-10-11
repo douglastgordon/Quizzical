@@ -6,6 +6,7 @@ import { requestLanguages } from '../../actions/language_actions';
 const mapStateToProps = (state, ownProps) => {
   let languageId="";
   let userId="";
+  let languages = state.languages;
 
   if (ownProps.location.pathname.slice(1, 10) === "languages"){
     languageId = ownProps.location.pathname.slice(11);
@@ -14,6 +15,7 @@ const mapStateToProps = (state, ownProps) => {
     }
 
   return ({
+    languages,
     decks: state.decks,
     user_id: userId,
     language_id: languageId
