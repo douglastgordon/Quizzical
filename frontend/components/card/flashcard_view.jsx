@@ -67,7 +67,7 @@ export default class FlashcardView extends React.Component{
                 <h2>{this.props.full_deck.author}</h2>
               </div>
               <div className="buttons">
-                <div className="button-container2">
+                <div className="button-container1">
                   <Link to={"/"+this.props.full_deck.id}>
                     <button className="back button">Back</button>
                   </Link>
