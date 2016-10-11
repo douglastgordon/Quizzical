@@ -7,7 +7,8 @@ export default class SessionFormComponent extends React.Component {
     super(props);
     this.state = {
       username: "",
-      password: ""
+      password: "",
+      errors: ""
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleInput = this.handleInput.bind(this);
@@ -17,6 +18,7 @@ export default class SessionFormComponent extends React.Component {
     e.preventDefault();
     const user = this.state;
     this.props.processForm(user);
+    this.receiveErrors();
   }
 
   handleInput(e){
@@ -31,14 +33,17 @@ export default class SessionFormComponent extends React.Component {
       hashHistory.push("/home");
     }
   }
+  receiveErrors(){
+    this.setState({errors: this.props.errors});
+  }
+
+
 
   render(){
     const isLogin = (this.props.formType === 'login');
     const header = (isLogin) ? "Log In" : "Sign Up";
     const link = (isLogin) ? "/signup" : "/login";
     const linkName = (isLogin) ? "Don't have an account?" : "Already a user?";
-
-
 
     return (
       <div className="loginPage">
@@ -68,7 +73,7 @@ export default class SessionFormComponent extends React.Component {
                 onInput={this.handleInput}/>
               Password
             </label>
-
+            <h3>{this.state.errors}</h3>
             <button type="submit">{header}</button>
             <Link className="link" to={link}>{linkName}</Link>
           </form>
