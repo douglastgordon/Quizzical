@@ -31,7 +31,7 @@ export default class DeckShow extends React.Component{
 
 
   handleCardDestroy(e){
-    this.props.destroyCard(e.currentTarget.id);
+    this.props.destroyCard(e.currentTarget.children[0].id);
     this.props.requestFullDeck(this.props.params.deckId);
 
   }
@@ -40,11 +40,8 @@ export default class DeckShow extends React.Component{
 
       let formData = new FormData();
       let formKeys = Object.keys(this.props.card_forms);
-
-      // let cardsToUpload = {};
       let deckId = this.props.deck.id;
       let cards = formKeys.map((key) => {
-        // key = parseInt(key);
         let card_form = this.props.card_forms[key];
 
         formData.append(`cards[${key}][term]`, card_form.term );
@@ -56,16 +53,8 @@ export default class DeckShow extends React.Component{
 
         formData.append(`cards[${key}][deck_id]`, deckId );
 
-        // let card = {
-        //   term: card_form.term,
-        //   definition: card_form.definition,
-        //   audio: card_form.audioFile,
-        //   deck_id: deckId
-        // };
-        // cardsToUpload[key] = card;
       });
 
-    // formData.append("cards", cardsToUpload);
     this.props.createCards(formData);
     this.setState({forms: []});
   }
@@ -78,12 +67,10 @@ export default class DeckShow extends React.Component{
     if (this.props.deck.cards){
       const cardKeys = Object.keys(this.props.deck.cards);
       kards = cardKeys.map((key, idx)=>{
-
         let deleteButton;
         if (this.props.currentUser.id === this.props.deck.author_id){
           deleteButton = (
             <img id={key}
-
               src={window.Quizzical.images.delete}>
             </img>
           );
@@ -103,7 +90,7 @@ export default class DeckShow extends React.Component{
 
               <div className="right-buttons">
                 <div className="audio">
-                  <audio controls>
+                  <audio>
                     <source src={this.props.deck.cards[key].audio_url} type="audio/wav"/>
                   </audio>
                 </div>
