@@ -10,6 +10,7 @@ export default class DeckShow extends React.Component{
     this.addNewCardForm = this.addNewCardForm.bind(this);
     this.handleCardDestroy = this.handleCardDestroy.bind(this);
     this.handleEnter = this.handleEnter.bind(this);
+    this.playAudio = this.playAudio.bind(this);
     this.state = {
       forms: [],
       form_count: 0
@@ -33,7 +34,10 @@ export default class DeckShow extends React.Component{
   handleCardDestroy(e){
     this.props.destroyCard(e.currentTarget.children[0].id);
     this.props.requestFullDeck(this.props.params.deckId);
+  }
 
+  playAudio(e){
+    e.currentTarget.children[1].play();
   }
 
   handleEnter(e){
@@ -89,13 +93,14 @@ export default class DeckShow extends React.Component{
               </div>
 
               <div className="right-buttons">
-                <div className="audio">
+                <div className="delete-card" onClick={this.handleCardDestroy}>
+                  {deleteButton}
+                </div>
+                <div className="audio" onClick={this.playAudio}>
+                  <img src={window.Quizzical.images.play_audio}></img>
                   <audio>
                     <source src={this.props.deck.cards[key].audio_url} type="audio/wav"/>
                   </audio>
-                </div>
-                <div className="delete-card" onClick={this.handleCardDestroy}>
-                  {deleteButton}
                 </div>
               </div>
             </li>

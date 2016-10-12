@@ -67,7 +67,7 @@
 .deck-show .term-title{
   display: block;
   float: left;
-  margin-left: -10px;
+  margin-left: -12px;
 }
 
 .term-title h3{
@@ -100,7 +100,7 @@
 .deck-show .definition-title{
   display: block;
   float: right;
-  margin-right: 270px;
+  margin-right: 250px;
 }
 
 .deck-show .buttons {
@@ -182,7 +182,7 @@ h2:hover, h4:hover {
   background: #ef4437;
   height: 100%;
   float: right;
-  width: 33%;
+  width: 50%;
   position: relative;
 }
 
@@ -200,7 +200,20 @@ h2:hover, h4:hover {
 }
 
 .audio{
-  background: blue;
+  background: #2196F3;
   height: 100%;
-  width: 33%;
+  width: 50%;
+  float: left;
+  position: relative;
+
+}
+
+.audio img {
+  width: 30px;
+  height: auto;
+  padding-left: 5px;
+  position: absolute;
+  bottom: 10px;
+  left: 2px;
+
 }
