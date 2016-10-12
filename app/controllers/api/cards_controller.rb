@@ -6,11 +6,14 @@ class Api::CardsController < ApplicationController
   end
 
   def create
-    @cards = JSON.parse(params["cards"])
     @real_cards = []
-    @cards.map do |card|
-      @real_cards << Card.create(card)
+    @cards = card_params[:cards]
+
+    @cards.keys.each do |key|
+      @real_cards << Card.create(@cards[key])
     end
+
+
     render :show
   end
 
@@ -29,6 +32,6 @@ class Api::CardsController < ApplicationController
   private
 
   def card_params
-    params.require(:cards).permit(:term, :definition, :audio_url, :deck_id)
+    params.permit(cards: [:term, :definition, :audio, :deck_id])
   end
 end

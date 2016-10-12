@@ -10,7 +10,10 @@ export default class DeckShow extends React.Component{
     this.addNewCardForm = this.addNewCardForm.bind(this);
     this.handleCardDestroy = this.handleCardDestroy.bind(this);
     this.handleEnter = this.handleEnter.bind(this);
-    this.forms = [];
+    this.state = {
+      forms: [],
+      form_count: 0
+    };
   }
 
   handleDestroy(){
@@ -22,8 +25,8 @@ export default class DeckShow extends React.Component{
   }
 
   addNewCardForm(){
-    this.forms.push(<NewCardContainer/>);
-    this.forceUpdate();
+    this.setState({forms: this.state.forms.concat(<NewCardContainer id={this.state.form_count}/>)});
+    this.setState({form_count: this.state.form_count+1});
   }
 
 
@@ -35,23 +38,36 @@ export default class DeckShow extends React.Component{
 
   handleEnter(e){
 
-    let forms = e.currentTarget.children;
-    let cards = [];
-    for (var i = 0; i < forms.length-1; i++) {
-      let term = forms[i].children[0].children[0].value;
-      let definition = forms[i].children[1].children[0].value;
-      if (definition !== "" && term !== ""){
-        cards.push({term,
-         definition,
-         deck_id: this.props.deck.id
-       });
+      let formData = new FormData();
+      let formKeys = Object.keys(this.props.card_forms);
 
-      }
+      // let cardsToUpload = {};
+      let deckId = this.props.deck.id;
+      let cards = formKeys.map((key) => {
+        // key = parseInt(key);
+        let card_form = this.props.card_forms[key];
 
+        formData.append(`cards[${key}][term]`, card_form.term );
+        formData.append(`cards[${key}][definition]`, card_form.definition );
 
-    }
-    this.props.createCards(cards);
-    this.forms = [];
+        if (card_form.audioFile !== null ){
+          formData.append(`cards[${key}][audio]`, card_form.audioFile );
+        }
+
+        formData.append(`cards[${key}][deck_id]`, deckId );
+
+        // let card = {
+        //   term: card_form.term,
+        //   definition: card_form.definition,
+        //   audio: card_form.audioFile,
+        //   deck_id: deckId
+        // };
+        // cardsToUpload[key] = card;
+      });
+
+    // formData.append("cards", cardsToUpload);
+    this.props.createCards(formData);
+    this.setState({forms: []});
   }
 
   render(){
@@ -185,7 +201,7 @@ export default class DeckShow extends React.Component{
           </ul>
 
           <form className="new-card" onSubmit={this.handleEnter}>
-              {this.forms}
+              {this.state.forms}
               <button className="hidden" type="submit">Submit</button>
           </form>
           {addButton}

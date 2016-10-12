@@ -1,10 +1,10 @@
-export const makeCards = (cards, success, error) => {
+export const makeCards = (formData, success, error) => {
   $.ajax({
     method: 'POST',
     url: '/api/cards/',
-    data: {
-      cards: JSON.stringify(cards)
-    },
+    contentType: false,
+    processData: false,
+    data: formData,
     success,
     error
   });

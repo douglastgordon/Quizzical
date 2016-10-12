@@ -5,11 +5,22 @@ export default class NewCard extends React.Component {
   constructor(props){
     super(props);
     this.state = {
+      temp_id: this.props.temp_id,
       term: "",
       definition: "",
-      deck_id: this.props.deck_id
+      deck_id: this.props.deck_id,
+      audioFile: null
     };
     this.handleInput = this.handleInput.bind(this);
+    this.updateFile = this.updateFile.bind(this);
+  }
+
+  componentDidMount(){
+    this.props.addCard(this.state.temp_id);
+  }
+
+  componentDidUpdate(){
+    this.props.updateCard(this.state);
   }
 
   handleInput(e){
@@ -18,6 +29,12 @@ export default class NewCard extends React.Component {
     } else if (e.target.className === "definition"){
       this.setState({definition: e.currentTarget.value});
     }
+  }
+
+  updateFile(e){
+    let file = e.currentTarget.files[0];
+
+    this.setState({audioFile: file});
   }
 
   render(){
@@ -36,6 +53,10 @@ export default class NewCard extends React.Component {
             value={this.state.definition}
             onInput={this.handleInput}
             className='definition'/>
+        </div>
+        <div className="audio-upload">
+          <input type="file" onChange={this.updateFile}/>
+          <input type="hidden" value={this.state.audioFile}></input>
         </div>
 
       </div>
