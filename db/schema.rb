@@ -11,16 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161011214332) do
+ActiveRecord::Schema.define(version: 20161012132753) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "cards", force: :cascade do |t|
-    t.string  "term",       null: false
-    t.string  "definition", null: false
-    t.string  "audio_url"
-    t.integer "deck_id",    null: false
+    t.string   "term",               null: false
+    t.string   "definition",         null: false
+    t.integer  "deck_id",            null: false
+    t.string   "audio_file_name"
+    t.string   "audio_content_type"
+    t.integer  "audio_file_size"
+    t.datetime "audio_updated_at"
   end
 
   add_index "cards", ["deck_id"], name: "index_cards_on_deck_id", using: :btree

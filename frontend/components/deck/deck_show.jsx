@@ -86,6 +86,11 @@ export default class DeckShow extends React.Component{
               </div>
 
               <div className="right-buttons">
+                <div className="audio">
+                  <audio controls>
+                    <source src={this.props.deck.cards[key].audio_url} type="audio/wav"/>
+                  </audio>
+                </div>
                 <div className="delete-card" onClick={this.handleCardDestroy}>
                   {deleteButton}
                 </div>

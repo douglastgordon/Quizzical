@@ -198,3 +198,9 @@ h2:hover, h4:hover {
   height: 100%;
   float: right;
 }
+
+.audio{
+  background: blue;
+  height: 100%;
+  width: 33%;
+}
