@@ -14,7 +14,7 @@
 
 class Deck < ActiveRecord::Base
 
-  validates :title, :author_id, presence: true
+  validates :title, :author_id, :term_lang_id, :def_lang_id, presence: true
 
   belongs_to(
     :author,

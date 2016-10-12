@@ -67,7 +67,7 @@ export default class DeckShow extends React.Component{
         if (this.props.currentUser.id === this.props.deck.author_id){
           deleteButton = (
             <img id={key}
-              onClick={this.handleCardDestroy}
+
               src={window.Quizzical.images.delete}>
             </img>
           );
@@ -86,7 +86,9 @@ export default class DeckShow extends React.Component{
               </div>
 
               <div className="right-buttons">
-                {deleteButton}
+                <div className="delete-card" onClick={this.handleCardDestroy}>
+                  {deleteButton}
+                </div>
               </div>
             </li>
         );

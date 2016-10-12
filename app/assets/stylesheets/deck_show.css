@@ -176,3 +176,25 @@
 h2:hover, h4:hover {
   color: #212121;
 }
+
+
+.delete-card {
+  background: #ef4437;
+  height: 100%;
+  float: right;
+  width: 33%;
+  position: relative;
+}
+
+.delete-card img {
+  width: 30px;
+  height: auto;
+  position: absolute;
+  bottom: 10px;
+  left: 6px;
+
+}
+.card .right-buttons {
+  height: 100%;
+  float: right;
+}
