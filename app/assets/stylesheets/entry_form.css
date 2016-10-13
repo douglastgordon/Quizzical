@@ -96,6 +96,10 @@
   font-size: 20px;
 }
 
+.entryForm button:hover {
+  background: #B2DFDB;
+}
+
 .entryForm .link {
   display: block;
   font-family: Montserrat;
@@ -112,4 +116,23 @@
   font-family: Montserrat;
   font-size: 12px;
   color: #F44336;
+}
+
+.entryForm h5 {
+  font-family: seravek;
+  font-size: 14px;
+  color: #757575;
+  margin-left: 134px;
+  cursor: pointer;
+}
+
+.entryForm h5:hover {
+  text-decoration: underline;
+  color: #212121;
+}
+
+.entryForm .link:hover {
+  text-decoration: underline;
+  color: #212121;
+
 }

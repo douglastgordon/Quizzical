@@ -12,6 +12,7 @@ export default class SessionFormComponent extends React.Component {
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleInput = this.handleInput.bind(this);
+    this.guestLogin = this.guestLogin.bind(this);
   }
 
   handleSubmit(e){
@@ -35,6 +36,12 @@ export default class SessionFormComponent extends React.Component {
   }
   receiveErrors(){
     this.setState({errors: this.props.errors});
+  }
+
+  guestLogin(e){
+    e.preventDefault();
+    hashHistory.push("/login");
+    this.setState({username: "Guest", password: "password"});
   }
 
 
@@ -73,6 +80,11 @@ export default class SessionFormComponent extends React.Component {
                 onInput={this.handleInput}/>
               Password
             </label>
+
+
+
+            <h5 onClick={this.guestLogin}>Guest Login</h5>
+
             <h3>{this.state.errors}</h3>
             <button type="submit">{header}</button>
             <Link className="link" to={link}>{linkName}</Link>
