@@ -39,28 +39,28 @@ export default class NewCard extends React.Component {
 
   render(){
     return(
-
       <div className="card-form">
+        <div className="text-entries">
 
-        <div className="term-box">
-          <input type='text'
-            value={this.state.term}
-            onInput={this.handleInput}
-            className="term"/>
-        </div>
-        <div className="definition-box">
-          <input type='text'
-            value={this.state.definition}
-            onInput={this.handleInput}
-            className='definition'/>
+          <div className="term-box">
+            <input type='text'
+              value={this.state.term}
+              onInput={this.handleInput}
+              className="term"/>
+          </div>
+          <div className="definition-box">
+            <input type='text'
+              value={this.state.definition}
+              onInput={this.handleInput}
+              className='definition'/>
+          </div>
+
         </div>
         <div className="audio-upload">
-          <input type="file" onChange={this.updateFile}/>
-          <input type="hidden" value={this.state.audioFile}></input>
+          <img src={window.Quizzical.images.audio_upload}></img>
+          <input type="file" className="upload-button" onChange={this.updateFile}/>
         </div>
-
       </div>
-
     );
   }
 }
