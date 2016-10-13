@@ -55,7 +55,6 @@ export default class DeckIndex extends React.Component{
       } else if (this.props.user_id !== ""){
         title = `${user}'s Decks`;
       } else if (this.props.language_id !== ""){
-        debugger
         title = `${this.props.languages[this.props.language_id].name} decks`;
       }
 

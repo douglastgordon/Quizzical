@@ -6,14 +6,12 @@ class Api::CardsController < ApplicationController
   end
 
   def create
+
     @real_cards = []
     @cards = card_params[:cards]
-
     @cards.keys.each do |key|
       @real_cards << Card.create(@cards[key])
     end
-
-
     render :show
   end
 
