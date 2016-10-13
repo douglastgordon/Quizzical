@@ -56,22 +56,12 @@ export default class FlashcardView extends React.Component{
   }
 
   componentDidMount(){
-    debugger
     this.props.requestFullDeck(this.props.deck_id);
-
     window.addEventListener("keydown", this.changeCard);
   }
 
-  // componentShouldMount(){
-  //   debugger
-  //   this.props.requestFullDeck(this.props.deck_id);
-  // }
-  // componentWillMount(){
-  //   debugger
-  //   this.props.requestFullDeck(this.props.deck_id);
-  // }
-
   playAudio(e){
+    e.stopPropagation();
     e.currentTarget.children[1].play();
   }
 
@@ -113,8 +103,8 @@ export default class FlashcardView extends React.Component{
     let audioButton;
     if (this.props.full_deck.cards[currentCardId].audio_url !== '/audios/original/missing.png'){
       audioButton = (
-        <div onClick={this.playAudio}>
-          <img src={window.Quizzical.images.play_audio}></img>
+        <div onClick={this.playAudio} className="audio-play">
+          <img src={window.Quizzical.images.black_play_audio} ></img>
           <audio>
             <source src={this.props.full_deck.cards[currentCardId].audio_url} type="audio/wav"/>
           </audio>
@@ -151,6 +141,7 @@ export default class FlashcardView extends React.Component{
             <div className="card-front">
               {prevButton}
                 {nextButton}
+
               <h1 className="card">
                 {currentShow}
               </h1>
