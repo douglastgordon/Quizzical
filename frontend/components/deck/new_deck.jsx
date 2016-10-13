@@ -19,6 +19,7 @@ export default class NewDeck extends React.Component{
     this.handleLanguageInput = this.handleLanguageInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleUpdate = this.handleUpdate.bind(this);
+    this.doNothing = this.doNothing.bind(this);
   }
 
   handleInput(e){
@@ -55,6 +56,8 @@ export default class NewDeck extends React.Component{
     this.props.updateForm(deck);
   }
 
+  doNothing(){}
+
   render(){
     let languageKeys = Object.keys(this.props.languages);
     let languages = languageKeys.map((key) => {
@@ -75,6 +78,26 @@ export default class NewDeck extends React.Component{
       submitText = "Create Deck";
       formSubmitAction = this.handleSubmit;
     }
+
+    let submitButton;
+    if (this.state.term_language !== "select" &&
+        this.state.definition_language !== "select" &&
+        this.state.title !== ""){
+      submitButton = (
+        <div className="submit-container">
+          <input className="submit" type="submit" value={submitText}/>
+        </div>
+      );
+    } else {
+      formSubmitAction = this.doNothing;
+      submitButton = (
+        <div className="submit-container" >
+          <input className="submit-grey" type="submit" value={submitText}/>
+          <h5>please fill out all required fields</h5>
+        </div>
+      );
+    }
+
 
     return (
       <div className="content">
@@ -124,12 +147,9 @@ export default class NewDeck extends React.Component{
                 className='description'/>
             </div>
 
-            <div className="submit-container">
-              <input className="submit" type="submit" value={submitText}/>
-            </div>
+          {submitButton}
 
           </form>
-          <h4>{this.state.errors}</h4>
         </div>
       </div>
     );
