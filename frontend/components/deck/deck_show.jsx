@@ -79,6 +79,11 @@ export default class DeckShow extends React.Component{
             </img>
           );
         }
+        let audio_image = window.Quizzical.images.play_audio;
+        console.log(this.props.deck.cards[key].audio_url);
+        if (this.props.deck.cards[key].audio_url == '/audios/original/missing.png'){
+            audio_image = window.Quizzical.images.no_audio;
+        }
 
         return (
             <li className="card">
@@ -97,7 +102,7 @@ export default class DeckShow extends React.Component{
                   {deleteButton}
                 </div>
                 <div className="audio" onClick={this.playAudio}>
-                  <img src={window.Quizzical.images.play_audio}></img>
+                  <img src={audio_image}></img>
                   <audio>
                     <source src={this.props.deck.cards[key].audio_url} type="audio/wav"/>
                   </audio>
