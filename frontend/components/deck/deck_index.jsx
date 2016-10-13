@@ -25,7 +25,7 @@ export default class DeckIndex extends React.Component{
   render(){
       let user;
       const deckKeys = Object.keys(this.props.decks);
-      let filter = new RegExp(this.state.searchQuery);
+      let filter = new RegExp(this.state.searchQuery, "i");
       let count = 0;
       let decks = deckKeys.map((key) => {
         if (((this.props.user_id === "" && this.props.language_id === "") ||
