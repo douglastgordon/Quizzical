@@ -41,7 +41,7 @@ export default class DeckShow extends React.Component{
   }
 
   handleEnter(e){
-
+      e.preventDefault();
       let formData = new FormData();
       let formKeys = Object.keys(this.props.card_forms);
       let deckId = this.props.deck.id;

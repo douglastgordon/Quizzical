@@ -106,7 +106,7 @@ export default class FlashcardView extends React.Component{
         <div onClick={this.playAudio} className="audio-play">
           <img src={window.Quizzical.images.black_play_audio} ></img>
           <audio>
-            <source src={this.props.full_deck.cards[currentCardId].audio_url} type="audio/wav"/>
+            <source src={this.props.full_deck.cards[currentCardId].audio_url} type="audio"/>
           </audio>
         </div>
       );
