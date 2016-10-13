@@ -80,7 +80,6 @@ export default class DeckShow extends React.Component{
           );
         }
         let audio_image = window.Quizzical.images.play_audio;
-        console.log(this.props.deck.cards[key].audio_url);
         if (this.props.deck.cards[key].audio_url == '/audios/original/missing.png'){
             audio_image = window.Quizzical.images.no_audio;
         }
