@@ -74,9 +74,13 @@ export default class DeckShow extends React.Component{
         let deleteButton;
         if (this.props.currentUser.id === this.props.deck.author_id){
           deleteButton = (
+            <div className="delete-card" onClick={this.handleCardDestroy}>
+
             <img id={key}
               src={window.Quizzical.images.delete}>
             </img>
+          </div>
+
           );
         }
         let audio_image = window.Quizzical.images.play_audio;
@@ -97,9 +101,7 @@ export default class DeckShow extends React.Component{
               </div>
 
               <div className="right-buttons">
-                <div className="delete-card" onClick={this.handleCardDestroy}>
                   {deleteButton}
-                </div>
                 <div className="audio" onClick={this.playAudio}>
                   <img src={audio_image}></img>
                   <audio>
