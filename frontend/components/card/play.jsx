@@ -12,7 +12,7 @@ export default class Play extends React.Component {
       randomNumber: 0,
       current_answer: "",
       current_score: 0,
-      time_left: 7.00,
+      time_left: 10.00,
       running: false
     };
 
@@ -46,7 +46,7 @@ export default class Play extends React.Component {
         this.props.requestHighScore(this.props.deck_id);
       }
       this.setState({
-        time_left: 15.00,
+        time_left: 10.00,
         randomNumber: 0,
         running: false,
         current_score: 0
