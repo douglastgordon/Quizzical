@@ -97,7 +97,11 @@
   position: absolute;
   width: 30px;
   height: auto;
-  bottom: 7px;
+  bottom: 10px;
   left: 7px;
+  cursor: pointer;
+}
+
+.audio-upload input {
   cursor: pointer;
 }

@@ -38,6 +38,11 @@ export default class NewCard extends React.Component {
   }
 
   render(){
+    let audioImage = window.Quizzical.images.audio_upload;
+    if (this.state.audioFile !== null){
+      audioImage = window.Quizzical.images.check;
+    }
+
     return(
       <div className="card-form">
         <div className="text-entries">
@@ -57,7 +62,7 @@ export default class NewCard extends React.Component {
 
         </div>
         <div className="audio-upload">
-          <img src={window.Quizzical.images.audio_upload}></img>
+          <img src={audioImage}></img>
           <input type="file" className="upload-button" onChange={this.updateFile}/>
         </div>
       </div>

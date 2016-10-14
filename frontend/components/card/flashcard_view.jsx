@@ -112,7 +112,6 @@ export default class FlashcardView extends React.Component{
         </div>
       );
     }
-    debugger
 
     return (
       <div className="content">

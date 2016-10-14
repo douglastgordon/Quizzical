@@ -217,3 +217,12 @@ h2:hover, h4:hover {
   left: 2px;
 
 }
+
+.present {
+  cursor: pointer;
+}
+
+.absent {
+  background: #9E9E9E;
+  cursor: not-allowed;
+}
