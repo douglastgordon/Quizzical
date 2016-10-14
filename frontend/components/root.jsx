@@ -12,6 +12,7 @@ import DeckShowContainer from './deck/deck_show_container';
 import DeckIndexContainer from './deck/deck_index_container';
 import Flashcard from './card/flashcard_view_container';
 import Languages from './language/language_index_container';
+import PlayContainer from './card/play_container';
 
 const Root = ({ store }) => {
 
@@ -49,6 +50,7 @@ const Root = ({ store }) => {
           <Route path="/languages" component={Languages}/>
           <Route path="/languages/:id" component={DeckIndexContainer}/>
           <Route path="/study/:deckId" component={Flashcard}/>
+          <Route path="/play/:deckId" component={PlayContainer}/>
           <Route path="/edit/:deckId" component={NewDeckContainer}/>
           <Route path="/:deckId" component={DeckShowContainer}/>
 
