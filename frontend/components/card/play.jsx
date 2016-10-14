@@ -68,7 +68,7 @@ export default class Play extends React.Component {
   randomTerm(){
 
     let numberOfCards = Object.keys(this.props.full_deck.cards).length;
-    let randomNumber = Math.floor((Math.random() * numberOfCards)+1);
+    let randomNumber = Math.floor((Math.random() * numberOfCards)+(Object.keys(this.props.full_deck.cards)[0]));
     let current_answer = this.props.full_deck.cards[randomNumber].definition;
 
     this.setState({
