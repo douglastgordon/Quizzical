@@ -9,10 +9,11 @@ export default class Play extends React.Component {
     super(props);
 
     this.state = {
-      randomNumber: 1,
+      randomNumber: 0,
       current_answer: "",
       current_score: 0,
-      time_left: 60.00
+      time_left: 7.00,
+      running: false
     };
 
     this.randomTerm = this.randomTerm.bind(this);
@@ -21,20 +22,36 @@ export default class Play extends React.Component {
     this.tick = this.tick.bind(this);
   }
 
-
-
   componentDidMount(){
     this.props.requestFullDeck(this.props.deck_id);
+    this.props.requestHighScore(this.props.deck_id);
   }
 
   startTimer(){
     this.interval = setInterval(this.tick, 10);
+    this.randomTerm();
+    this.setState({running: true});
   }
 
   tick(){
     this.setState({time_left: this.state.time_left-0.01});
     if (this.state.time_left <= 0){
       clearInterval(this.interval);
+      if (this.state.current_score > this.props.hi_score ){
+        this.props.createScore({
+          score: this.state.current_score,
+          deck_id: this.props.deck_id,
+          user_id: this.props.currentUser.id
+        });
+        this.props.requestHighScore(this.props.deck_id);
+      }
+      this.setState({
+        time_left: 15.00,
+        randomNumber: 0,
+        running: false,
+        current_score: 0
+      });
+
     }
   }
 
@@ -42,6 +59,7 @@ export default class Play extends React.Component {
     this.setState({answer: e.currentTarget.value});
     if (e.currentTarget.value === this.props.full_deck.cards[this.state.randomNumber].definition){
       this.randomTerm();
+      this.setState({current_score: this.state.current_score+1});
     } else {
       this.setState({answer: e.currentTarget.value});
     }
@@ -55,8 +73,8 @@ export default class Play extends React.Component {
 
     this.setState({
         randomNumber: randomNumber,
-        answer: "",
-        current_score: this.state.current_score+1
+        answer: ""
+
       });
 
   }
@@ -66,16 +84,32 @@ export default class Play extends React.Component {
     if (!this.props.full_deck.cards){
       return (<div></div>);
     }
-      return (
-        <div>
+    let term;
+    if (this.state.randomNumber === 0){
+      term = "";
+    } else {
+      term = this.props.full_deck.cards[this.state.randomNumber].term;
+    }
 
-          <h3 onClick={this.randomTerm}>
-            {this.props.full_deck.cards[this.state.randomNumber].term}
-          </h3>
+    let start = "start";
+    if (this.state.running === true){
+      start = "";
+    }
+
+      return (
+        <div className="content">
+          <div className="play">
+          <h1>{  parseFloat(Math.round((this.state.time_left) * 100) / 100).toFixed(2)}</h1>
+            <h3 onClick={this.randomTerm}>
+              {term}
+            </h3>
+          <h2 onClick={this.startTimer}>{start}</h2>
+
+
           <input onInput={this.checkAnswer} type="text" value={this.state.answer}/>
-          <h3>Current Score: {this.state.current_score}</h3>
-          <h3>{(this.state.time_left).toPrecision(4)}</h3>
-          <h3 onClick={this.startTimer}>start</h3>
+          <h4>High Score: {this.props.hi_score} {this.props.hi_scorer}</h4>
+          <h4>Current Score: {this.state.current_score}</h4>
+          </div>
         </div>
       );
     }

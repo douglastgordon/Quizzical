@@ -1,0 +1,62 @@
+.play {
+width: 80%;
+height: 600px;
+margin: 0 auto;
+text-align: center;
+margin-top: 50px;
+}
+
+.play h1 {
+  font-family: seravek;
+  font-size: 30px;
+  color: #212121;
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
+.play h2 {
+  font-family: seravek;
+  font-size: 24px;
+  color: #757575;
+  margin: 0 auto;
+  margin-bottom: 40px;
+}
+.play h2:hover {
+  color: #212121;
+  text-decoration: underline;
+
+}
+
+.play h3 {
+  font-family: seravek;
+  font-size: 24px;
+  color: #757575;
+  margin: 0 auto;
+  margin-bottom: 0px;
+}
+
+.play input{
+  background: transparent;
+  color: #231f20;
+  font-size: 17px;
+  display: block;
+  width: 200px;
+  height: 30px;
+  border: 0;
+  border-bottom: 3px solid #212121;
+  transition: border 0.5s ease-out;
+  margin-bottom: 30px;
+  margin: 0 auto;
+
+
+}
+
+.play input:focus {
+  border-bottom: 3px solid #FFC107;
+}
+
+.play h4 {
+  margin-top: 20px;
+  font-family: seravek;
+  font-size: 24px;
+  color: #212121;
+}

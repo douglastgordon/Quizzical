@@ -2,11 +2,14 @@
 #
 # Table name: cards
 #
-#  id         :integer          not null, primary key
-#  term       :string           not null
-#  definition :string           not null
-#  audio_url  :string
-#  deck_id    :integer
+#  id                 :integer          not null, primary key
+#  term               :string           not null
+#  definition         :string           not null
+#  deck_id            :integer          not null
+#  audio_file_name    :string
+#  audio_content_type :string
+#  audio_file_size    :integer
+#  audio_updated_at   :datetime
 #
 
 class Card < ActiveRecord::Base

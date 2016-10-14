@@ -6,10 +6,10 @@
 #  title        :string           not null
 #  author_id    :integer          not null
 #  description  :text
-#  term_lang_id :integer
-#  def_lang_id  :integer
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
+#  term_lang_id :integer          not null
+#  def_lang_id  :integer          not null
 #
 
 class Deck < ActiveRecord::Base

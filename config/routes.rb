@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     resources :decks, only: [:create, :destroy, :show, :index, :update]
     resources :cards, only: [:create, :destroy, :update, :show]
     resources :languages, only: [:index]
+    resources :scores, only: [:create, :show]
   end
 
   root "static_pages#root"

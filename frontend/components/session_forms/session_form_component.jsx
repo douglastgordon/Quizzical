@@ -41,7 +41,7 @@ export default class SessionFormComponent extends React.Component {
   guestLogin(e){
     e.preventDefault();
     hashHistory.push("/login");
-    this.setState({username: "Guest", password: "password"});
+    this.setState({username: "Guest", password: "starwars"});
   }
 
 
