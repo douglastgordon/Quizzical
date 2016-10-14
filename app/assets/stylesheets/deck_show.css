@@ -105,24 +105,36 @@
 
 .deck-show .buttons {
   float: right;
-  width: 250px;
+  width: 345px;
 }
 
 .deck-show .button-container0 {
   width: 80px;
   height: 40px;
-  float: left;
+  float: right;
+  margin-right: 5px;
+
 }
 .deck-show .button-container1 {
   width: 80px;
   height: 40px;
   float: right;
+  margin-right: 5px;
+
 }
 
 .deck-show .button-container2 {
   width: 80px;
   height: 40px;
-  float: left;
+  float: right;
+  margin-right: 5px;
+
+}
+.deck-show .button-container3 {
+  width: 80px;
+  height: 40px;
+  float: right;
+  margin-right: 5px;
 }
 
 
@@ -161,6 +173,14 @@
 }
 .deck-show .study:hover {
   background: #BBDEFB;
+}
+.deck-show .play-it {
+  display: block;
+  background: #FF5722;
+  margin-right: 10px;
+}
+.deck-show .play-it:hover {
+  background: #FFCCBC;
 }
 
 .deck-show .back {

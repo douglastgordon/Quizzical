@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { Link, hashHistory } from 'react-router';
 
 
 export default class Play extends React.Component {
@@ -20,6 +20,7 @@ export default class Play extends React.Component {
     this.checkAnswer = this.checkAnswer.bind(this);
     this.startTimer = this.startTimer.bind(this);
     this.tick = this.tick.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount(){
@@ -53,6 +54,11 @@ export default class Play extends React.Component {
       });
 
     }
+  }
+
+  handleClick(){
+    const deckID = this.props.deck_id;
+    hashHistory.push(`/${deckID}`);
   }
 
   checkAnswer(e){
@@ -106,7 +112,27 @@ export default class Play extends React.Component {
     }
 
       return (
+
         <div className="content">
+          <div className="deck-show group">
+
+          <div className="topline group push-down">
+            <div className="title">
+              <h1>{this.props.full_deck.title}</h1>
+              <Link to={"/users/"+this.props.full_deck.author_id}>
+                <h2>{this.props.full_deck.author}</h2>
+              </Link>
+            </div>
+            <div className="buttons">
+              <div className="button-container1">
+                <Link to={"/"+this.props.full_deck.id}>
+                  <button className="back button">Back</button>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+
           <div className="play">
           <h1>{  parseFloat(Math.round((this.state.time_left) * 100) / 100).toFixed(2)}</h1>
             <h3 onClick={this.randomTerm}>
