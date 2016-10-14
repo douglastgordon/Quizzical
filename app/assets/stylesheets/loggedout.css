@@ -1,8 +1,8 @@
 .loggedOut{
   z-index: 0;
-
+  margin: 0 auto;
+  width: 900px;
 }
-
 
 .loggedOut .tree {
   display: block;
