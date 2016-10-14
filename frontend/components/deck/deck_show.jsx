@@ -37,6 +37,7 @@ export default class DeckShow extends React.Component{
   }
 
   playAudio(e){
+    debugger
     e.currentTarget.children[1].play();
   }
 

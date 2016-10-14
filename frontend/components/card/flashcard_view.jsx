@@ -61,6 +61,7 @@ export default class FlashcardView extends React.Component{
   }
 
   playAudio(e){
+    debugger
     e.stopPropagation();
     e.currentTarget.children[1].play();
   }
@@ -106,7 +107,7 @@ export default class FlashcardView extends React.Component{
         <div onClick={this.playAudio} className="audio-play">
           <img src={window.Quizzical.images.black_play_audio} ></img>
           <audio>
-            <source src={this.props.full_deck.cards[currentCardId].audio_url} type="audio"/>
+            <source src={this.props.full_deck.cards[currentCardId].audio_url} type="audio/wav"/>
           </audio>
         </div>
       );
