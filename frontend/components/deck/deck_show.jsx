@@ -54,11 +54,8 @@ export default class DeckShow extends React.Component{
         if (card_form.audioFile !== null ){
           formData.append(`cards[${key}][audio]`, card_form.audioFile );
         }
-
         formData.append(`cards[${key}][deck_id]`, deckId );
-
       });
-
     this.props.createCards(formData);
     this.setState({forms: []});
   }

@@ -72,18 +72,8 @@ export default class Play extends React.Component {
   }
 
   randomTerm(){
-    let keys =  Object.keys(this.props.full_deck.cards)
+    let keys =  Object.keys(this.props.full_deck.cards);
     let randomNumber = keys[Math.floor(Math.random()*keys.length)];
-    //
-    // let numberOfCards = Object.keys(this.props.full_deck.cards).length;
-    // let randomNumber = Math.floor((Math.random() * numberOfCards)+(Object.keys(this.props.full_deck.cards)[0]));
-    console.log("look at me")
-    console.log(this.props.full_deck);
-    console.log(this.props.full_deck.cards);
-    console.log(this.props.full_deck.cards[randomNumber]);
-    console.log(this.props.full_deck.cards[randomNumber].definition);
-
-
     let current_answer = this.props.full_deck.cards[randomNumber].definition;
 
     this.setState({

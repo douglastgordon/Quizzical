@@ -1,28 +1,61 @@
-== README
+#Quizzical
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Quizzical is a web application for creating and studying flashcards. It was
+ inspired by Quizlet and built using Ruby on Rails and React/Redux.
 
-Things you may want to cover:
+Explore and Listen at [sound-clone.com](https://secret-springs-77868.herokuapp.com/
 
-* Ruby version
+###Welcome View:
 
-* System dependencies
+![welcome]
 
-* Configuration
+###Home View:
 
-* Database creation
+![home]
 
-* Database initialization
+###Flashcard View:
 
-* How to run the test suite
+![flashcard]
 
-* Services (job queues, cache servers, search engines, etc.)
+###Technical Details:
+* Quizzical allows users to dynamically create unlimited forms with optional audio-upload for card creation. This improves scalability by limiting the number of potential ajax requests. This was accomplished by appending all the information contained in the forms to a single formData object, as shown below.
 
-* Deployment instructions
+```
+handleEnter(e){
+    e.preventDefault();
+    let formData = new FormData();
+    let formKeys = Object.keys(this.props.card_forms);
+    let deckId = this.props.deck.id;
+    let cards = formKeys.map((key) => {
+      let card_form = this.props.card_forms[key];
 
-* ...
+      formData.append(`cards[${key}][term]`, card_form.term );
+      formData.append(`cards[${key}][definition]`, card_form.definition );
+
+      if (card_form.audioFile !== null ){
+        formData.append(`cards[${key}][audio]`, card_form.audioFile );
+      }
+      formData.append(`cards[${key}][deck_id]`, deckId );
+    });
+  this.props.createCards(formData);
+  this.setState({forms: []});
+}
+```
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+###Features
+* Authentication
+* CRUD for decks and flashcards
+* Audio upload and playback
+* Search Decks
+* Filter Decks by language or author
+* Animated flashcard view
+* Interactive learning game which saves high scores
+
+
+
+[Original Design Docs](./docs/README.md)
+
+[welcome]: ./docs/images/welcome.tiff
+[home]: ./docs/images/home.tiff
+[flashcard]: ./docs/images/flashcard.tiff
