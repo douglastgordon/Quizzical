@@ -56,6 +56,6 @@ handleEnter(e){
 
 [Original Design Docs](./docs/README.md)
 
-[welcome]: ./docs/images/welcome.tiff
-[home]: ./docs/images/home.tiff
-[flashcard]: ./docs/images/flashcard.tiff
+[welcome]: ./docs/images/welcome.png
+[home]: ./docs/images/home.png
+[flashcard]: ./docs/images/flashcard.png
