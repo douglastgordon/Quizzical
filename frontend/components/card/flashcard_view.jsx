@@ -61,7 +61,6 @@ export default class FlashcardView extends React.Component{
   }
 
   playAudio(e){
-    debugger
     e.stopPropagation();
     e.currentTarget.children[1].play();
   }

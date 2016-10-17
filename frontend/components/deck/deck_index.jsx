@@ -46,7 +46,6 @@ export default class DeckIndex extends React.Component{
       });
 
       decks = decks.reverse();
-      console.log(this.props.language_id);
       let title;
       if (count === 0){
         title = "Sorry, there's nothing here!";
