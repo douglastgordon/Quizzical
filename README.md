@@ -20,8 +20,7 @@ Explore and Listen at [sound-clone.com](https://secret-springs-77868.herokuapp.c
 ###Technical Details:
 * Quizzical allows users to dynamically create unlimited forms with optional audio-upload for card creation. This improves scalability by limiting the number of potential ajax requests. This was accomplished by appending all the information contained in the forms to a single formData object, as shown below.
 
-```
-//JavaScript 
+```javascript
 
 handleEnter(e){
     e.preventDefault();
