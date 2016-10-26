@@ -42,7 +42,7 @@ export default class SessionFormComponent extends React.Component {
     e.preventDefault();
     hashHistory.push("/login");
     this.setState({username: "Guest", password: "starwars"});
-    this.processForm({username: "Guest", password: "starwars"});
+    this.props.processForm({username: "Guest", password: "starwars"});
   }
 
 
