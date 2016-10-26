@@ -3,7 +3,7 @@
 Quizzical is a web application for creating and studying flashcards. It was
  inspired by Quizlet and built using Ruby on Rails and React/Redux.
 
-Explore and Listen at [sound-clone.com](https://secret-springs-77868.herokuapp.com/
+Explore and Listen at [quizzical.co](http://www.quizzical.co/)
 
 ###Welcome View:
 
